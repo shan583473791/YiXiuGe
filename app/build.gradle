@@ -3,6 +3,14 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res/layouts', 'src/main/res/'
+            ]
+        }
+    }
     defaultConfig {
         applicationId "com.zykj.yixiu"
         minSdkVersion 15
@@ -26,4 +34,25 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
+    /*json解析*/
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.12'
+    /*log日志*/
+    compile 'com.orhanobut:logger:1.15'
+    /*黄油刀*/
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //网络请求 xutils
+    compile group: 'org.xutils', name: 'xutils', version: '3.3.40'
+    //图片轮播器
+    compile 'com.youth.banner:banner:1.4.9'  //最新版本
+    //图片压缩器
+    compile 'top.zibin:Luban:1.0.9'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    //图片选择器
+    compile 'cn.finalteam:galleryfinal:1.4.8.7'
+    //图片加载库
+    compile group: 'com.github.bumptech.glide', name: 'glide', version: '3.7.0'
+
+
+
 }
