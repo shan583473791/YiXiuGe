@@ -3,6 +3,7 @@ package com.zykj.yixiu.activity;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.umeng.analytics.MobclickAgent;
 import com.zykj.yixiu.R;
 
 /**
@@ -14,5 +15,6 @@ public class Hello extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a);
+        MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
     }
 }

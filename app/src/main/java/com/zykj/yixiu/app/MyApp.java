@@ -10,9 +10,11 @@ import com.zykj.yixiu.utils.Y;
 
 public class MyApp extends Application {
     //初始化
+
     @Override
     public void onCreate() {
         super.onCreate();
         Y.context = this;
     }
+
 }

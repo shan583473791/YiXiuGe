@@ -53,6 +53,6 @@ dependencies {
     //图片加载库
     compile group: 'com.github.bumptech.glide', name: 'glide', version: '3.7.0'
 
-
-
+    //友盟应用统计
+    compile 'com.umeng.analytics:analytics:latest.integration'
 }

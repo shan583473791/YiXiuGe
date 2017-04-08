@@ -17,7 +17,6 @@ public class Y {
         //log  i
         com.orhanobut.logger.Logger.i(src);
     }
-
     public static void t(String src){
         Toast.makeText(context, src, Toast.LENGTH_SHORT).show();
     }
