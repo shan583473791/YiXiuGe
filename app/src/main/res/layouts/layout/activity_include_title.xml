@@ -2,26 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:MyTopBar="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     android:orientation="vertical">
-
 <com.zykj.yixiu.app.MyTopBar
+
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:background="#ffffff"
-
-
-
-    MyTopBar:titleText="一修哥"
-    MyTopBar:titleTextSize="13sp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    MyTopBar:titleText="订单详情"
+    MyTopBar:titleTextSize="12sp"
     MyTopBar:titleTextColor="#00cccc"
-
-    MyTopBar:leftText="哈尔滨"
+    MyTopBar:leftText="删除订单"
+    MyTopBar:leftTextSize="8sp"
     MyTopBar:leftTextColor="#00cccc"
-    MyTopBar:leftTextSize="12sp"
+    MyTopBar:rightBackground="@mipmap/activity_fh"
+    ></com.zykj.yixiu.app.MyTopBar>
 
-    >
+<include android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    layout="@layout/avtivity_include_line"
+    />
 
-
-</com.zykj.yixiu.app.MyTopBar>
 </LinearLayout>
