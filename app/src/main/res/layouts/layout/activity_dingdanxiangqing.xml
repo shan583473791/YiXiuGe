@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:MyTopBar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/beijing"
+    android:orientation="vertical">
+
+    <com.zykj.yixiu.app.MyTopBar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:paddingBottom="3dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="3dp"
+        MyTopBar:rightBackground="@mipmap/activity_fh"
+        MyTopBar:titleText="我的订单"
+        MyTopBar:titleTextColor="#00cccc"
+        MyTopBar:titleTextSize="8sp"
+
+        MyTopBar:leftText="取消订单"
+        MyTopBar:lefttTextSize="12sp"
+        MyTopBar:lefttTextColor="#00cccc"
+
+        ></com.zykj.yixiu.app.MyTopBar>
+
+    <include
+        layout="@layout/avtivity_include_line"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+                android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="#00cccc"
+            android:text="未完成" />
+
+      <View
+          android:layout_width="0.5dp"
+          android:background="#000000"
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="已完成" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:background="#000000"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="已取消" />
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        android:layout_marginRight="5dp"
+        android:src="@mipmap/lanhengxian"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:src="@mipmap/lanhengxian"
+        android:scaleType="fitXY"
+        android:visibility="invisible"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="5dp"
+        android:visibility="invisible"
+        android:src="@mipmap/lanhengxian"
+        android:layout_height="match_parent" />
+</LinearLayout>
+</LinearLayout>
