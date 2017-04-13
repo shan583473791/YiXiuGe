@@ -105,7 +105,69 @@
         android:text="选择其他方式"
         android:textSize="13sp" />
 <LinearLayout
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:background="#ffffff"
+    android:layout_height="60dp">
+
+<ImageView
+    android:layout_width="35dp"
+    android:layout_marginLeft="25dp"
+    android:src="@mipmap/zhifubao"
+    android:layout_height="35dp" />
+<TextView
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"></LinearLayout>
+    android:text="支付宝"
+    android:layout_marginLeft="15dp"
+    android:layout_height="wrap_content" />
+
+</LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@mipmap/huixian" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:layout_marginTop="2dp"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_marginLeft="25dp"
+            android:src="@mipmap/weixin"
+            android:layout_height="35dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="微信"
+            android:layout_marginLeft="15dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:layout_marginTop="220dp"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="金额 ：600元"
+            android:textColor="#ff6633"
+            android:layout_marginLeft="15dp"
+            android:layout_height="wrap_content" />
+  <Button
+      android:layout_width="120dp"
+      android:text="支付"
+      android:textColor="#ffffff"
+      android:layout_marginRight="20dp"
+      android:textSize="15sp"
+      android:background="@mipmap/querenchengduan"
+      android:layout_height="35dp" />
+
+    </LinearLayout>
 </LinearLayout>
 
