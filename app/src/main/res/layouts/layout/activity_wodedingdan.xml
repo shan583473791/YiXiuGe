@@ -15,7 +15,7 @@
         android:paddingRight="20dp"
         android:paddingTop="3dp"
         MyTopBar:rightBackground="@mipmap/activity_fh"
-        MyTopBar:titleText="手机维修"
+        MyTopBar:titleText="我的订单"
         MyTopBar:titleTextColor="#00cccc"
         MyTopBar:titleTextSize="8sp"></com.zykj.yixiu.app.MyTopBar>
 
@@ -37,6 +37,7 @@
             android:layout_weight="1"
                 android:gravity="center"
             android:textSize="18sp"
+            android:textColor="#00cccc"
             android:text="未完成" />
 
       <View
@@ -71,5 +72,29 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:orientation="horizontal"
-    android:layout_height="wrap_content"></LinearLayout>
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        android:layout_marginRight="5dp"
+        android:src="@mipmap/lanhengxian"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:src="@mipmap/lanhengxian"
+        android:scaleType="fitXY"
+        android:visibility="invisible"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="5dp"
+        android:visibility="invisible"
+        android:src="@mipmap/lanhengxian"
+        android:layout_height="match_parent" />
+</LinearLayout>
 </LinearLayout>
