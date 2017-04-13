@@ -14,7 +14,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="3dp"
-        MyTopBar:leftText="取消订单"
+        MyTopBar:leftText="删除订单"
         MyTopBar:leftTextColor="#00cccc"
         MyTopBar:leftTextSize="7sp"
         MyTopBar:rightBackground="@mipmap/activity_fh"
@@ -47,157 +47,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@mipmap/chengduihao" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="发布成功"
-                    android:textColor="#ff6633"
-                    android:textSize="11sp" />
-            </LinearLayout>
+            android:gravity="center_horizontal">
 
             <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/chengduihao" />
+
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/chengdian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/chengdian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/chengdian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/chengdian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/chengdian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/chengdian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@mipmap/chengdian" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@mipmap/huiduihao" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="已接单"
-                    android:textColor="#868686"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/huidian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/huidian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/huidian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/huidian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/huidian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/huidian" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="5dp"
-                android:src="@mipmap/huidian" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@mipmap/huiduihao" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="完成订单"
-                    android:textColor="#868686"
-                    android:textSize="11sp" />
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="12dp"
+                android:text="订单已完成"
+                android:textColor="#ff6633" />
         </LinearLayout>
     </LinearLayout>
 
@@ -222,7 +85,8 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="手机" />
+            android:text="手机"
+            android:id="@+id/textView4" />
 
 
     </LinearLayout>
@@ -344,13 +208,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:scaleType="fitXY"
         android:layout_marginRight="10dp"
+        android:scaleType="fitXY"
         android:src="@mipmap/huixian" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="170dp"
         android:background="#ffffff"
         android:orientation="vertical">
 
@@ -370,6 +234,7 @@
                 android:layout_height="wrap_content"
                 android:text="苹果手机" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -386,6 +251,7 @@
                 android:layout_height="wrap_content"
                 android:text="6 plus" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -409,15 +275,50 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:scaleType="fitXY"
             android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/huixian" />
-<TextView
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="内外屏都进水了，按键不好使手机有花屏" />
+
+
+<LinearLayout
     android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:gravity="right"
+    android:layout_marginTop="20dp"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:text="已支付" />
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+        android:textColor="#ff6633"
+        android:textSize="20sp"
     android:gravity="center_vertical"
-    android:layout_marginLeft="10dp"
-    android:text="内外屏都进水了，按键不好使手机有花屏"
-    android:layout_height="match_parent" />
+    android:text="600" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff6633"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_vertical"
+        android:text="元" />
+</LinearLayout>
     </LinearLayout>
+
+
+
 
 </LinearLayout>
