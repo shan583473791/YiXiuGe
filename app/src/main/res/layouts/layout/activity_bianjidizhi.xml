@@ -17,7 +17,7 @@
         MyTopBar:rightBackground="@mipmap/activity_fh"
         MyTopBar:titleText="编辑地址"
         MyTopBar:titleTextColor="#00cccc"
-        MyTopBar:titleTextSize="8sp"></com.zykj.yixiu.app.MyTopBar>
+        MyTopBar:titleTextSize="9sp"></com.zykj.yixiu.app.MyTopBar>
 
     <include
         layout="@layout/avtivity_include_line"
@@ -138,8 +138,6 @@
             android:checked="true"
 
             android:layout_weight="1" />
-
-
     </LinearLayout>
 
 

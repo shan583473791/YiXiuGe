@@ -15,7 +15,7 @@
         android:paddingRight="20dp"
         android:paddingTop="3dp"
         MyTopBar:rightBackground="@mipmap/activity_fh"
-        MyTopBar:titleText="修改密码"
+        MyTopBar:titleText="消息接收"
         MyTopBar:titleTextColor="#00cccc"
         MyTopBar:titleTextSize="9sp"></com.zykj.yixiu.app.MyTopBar>
 
@@ -25,65 +25,37 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="5dp"
-
         android:background="#ffffff"
-        android:padding="5dp">
+       >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:paddingLeft="20dp"
-            android:text="新密码"
-            android:textColor="#3e3e3e"
+            android:text="接收消息通知"
+            android:textColor="#000000"
             android:textSize="20sp" />
 
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-
-            android:background="@null"
-            android:layout_marginLeft="30dp"
-            android:hint="请输入新密码" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="5dp"
-
-        android:background="#ffffff"
-        android:padding="5dp">
-
-        <TextView
+        <Switch
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:paddingLeft="20dp"
-            android:text="确认密码"
-            android:textColor="#3e3e3e"
-            android:textSize="20sp" />
+            android:layout_height="wrap_content"
+            android:id="@+id/switch2"
 
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-
-            android:background="@null"
-            android:layout_marginLeft="10dp"
-            android:hint="请再次输入新密码" />
+            android:layout_marginRight="10dp"
+            android:checked="true"
+            android:clickable="false"
+            android:layout_weight="1" />
     </LinearLayout>
-
-
-    <include android:layout_height="wrap_content"
+    <TextView
         android:layout_width="match_parent"
-        layout="@layout/activity_button_ok"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="关闭后，您将无法接收到来自一修哥的消息通知"
+
         />
 </LinearLayout>
