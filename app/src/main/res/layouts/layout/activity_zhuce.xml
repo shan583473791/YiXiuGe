@@ -15,9 +15,9 @@
         android:paddingRight="20dp"
         android:paddingTop="3dp"
         MyTopBar:rightBackground="@mipmap/activity_fh"
-        MyTopBar:titleText="家电维修"
+        MyTopBar:titleText="注册"
         MyTopBar:titleTextColor="#00cccc"
-        MyTopBar:titleTextSize="8sp"></com.zykj.yixiu.app.MyTopBar>
+        MyTopBar:titleTextSize="9sp"></com.zykj.yixiu.app.MyTopBar>
 
     <include
         layout="@layout/avtivity_include_line"
