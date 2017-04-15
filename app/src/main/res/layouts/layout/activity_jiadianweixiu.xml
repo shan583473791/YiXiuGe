@@ -46,13 +46,16 @@
             android:layout_marginLeft="20dp"
             android:src="@mipmap/lanshu" />
 
-        <EditText
+
+        <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:hint="请选择您的家电品牌" />
+            android:text="请选择您的家电品牌"
+            android:textColor="#bcbcbc"
+            android:textSize="18sp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -82,13 +85,16 @@
             android:layout_marginLeft="20dp"
             android:src="@mipmap/lanshu" />
 
-        <EditText
+
+        <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:hint="请选择您的家电类型" />
+            android:text="请选择您的家电类型"
+            android:textColor="#bcbcbc"
+            android:textSize="18sp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -118,12 +124,15 @@
             android:layout_marginLeft="20dp"
             android:src="@mipmap/lanshu" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:hint="请选择您的家电型号" />
+            android:text="请选择您的家电型号"
+            android:textColor="#bcbcbc"
+            android:textSize="18sp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -155,14 +164,15 @@
             android:layout_marginLeft="20dp"
             android:src="@mipmap/lanshu" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:hint="请选择您的家电故障点"
-            android:background="@null"
-            android:id="@+id/editText" />
+            android:text="请选择您的家电故障点"
+            android:textColor="#bcbcbc"
+            android:textSize="18sp" />
 
         <ImageView
             android:layout_width="wrap_content"
