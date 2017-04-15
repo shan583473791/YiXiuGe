@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:MyTopBar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/beijing"
+    android:orientation="vertical">
+
+    <com.zykj.yixiu.app.MyTopBar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:paddingBottom="3dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="3dp"
+        MyTopBar:rightBackground="@mipmap/activity_fh"
+        MyTopBar:titleText="常见问题"
+        MyTopBar:titleTextColor="#00cccc"
+        MyTopBar:titleTextSize="8sp"></com.zykj.yixiu.app.MyTopBar>
+
+    <include
+        layout="@layout/avtivity_include_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+
+            android:background="#ffffff"
+
+            android:gravity="center"
+            android:padding="5dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/lanfang" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="5dp"
+                    android:src="@mipmap/shoudian" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:text="常见问题"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@mipmap/zixunhuixian"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="NOKIA的开机后反复白屏重启，或者某个功能进不去等，这一类的故障是软件的问题。
+            国产机MTk系列，不断提示充电器链接，充电器移除时CPU虚焊。
+             "
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#4d4d4d"
+            android:layout_height="wrap_content"
+            android:text="软件故障就刷机，硬件故障就修硬件，用电源夹上看手机电流."
+            android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="NOKIA的开机后反复白屏重启，或者某个功能进不去等，这一类的故障是软件的问题。
+            国产机MTk系列，不断提示充电器链接，充电器移除时CPU虚焊。
+             "
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#4d4d4d"
+            android:layout_height="wrap_content"
+            android:text="软件故障就刷机，硬件故障就修硬件，用电源夹上看手机电流."
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
