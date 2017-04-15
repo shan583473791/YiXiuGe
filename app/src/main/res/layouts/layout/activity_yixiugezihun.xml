@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:MyTopBar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/beijing"
+    android:orientation="vertical">
+
+    <com.zykj.yixiu.app.MyTopBar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:paddingBottom="3dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="3dp"
+        MyTopBar:rightBackground="@mipmap/activity_fh"
+        MyTopBar:titleText="一修哥咨询"
+        MyTopBar:titleTextColor="#00cccc"
+        MyTopBar:titleTextSize="8sp"></com.zykj.yixiu.app.MyTopBar>
+
+    <include
+        layout="@layout/avtivity_include_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="12:30"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ffffff"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/xiaohuitiao"
+        android:layout_height="wrap_content" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_marginLeft="30dp"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical"
+    android:layout_marginRight="30dp"
+    android:background="@mipmap/yuanjiaobeijing"
+    android:layout_height="350dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="140dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@mipmap/rengongju"
+            android:scaleType="fitXY"
+            android:layout_height="match_parent" />
+    <TextView
+        android:layout_width="match_parent"
+        android:background="@mipmap/heitiao"
+        android:layout_gravity="bottom"
+        android:text="     一修哥在手，快捷生活轻松拥有"
+        android:textColor="#ffffffff"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content" />
+    </FrameLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@mipmap/zixunhuixian"
+        android:scaleType="fitXY"
+        android:layout_height="wrap_content" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_weight="1"
+    android:layout_height="0dp">
+   <TextView
+       android:layout_width="0dp"
+       android:layout_marginLeft="20dp"
+       android:layout_weight="1"
+       android:gravity="center_vertical"
+       android:text="手机为什么会黑屏，教你平时的保养技巧！"
+       android:layout_height="match_parent" />
+    <ImageView
+        android:layout_width="50dp"
+        android:src="@mipmap/shougongju"
+        android:scaleType="fitXY"
+        android:layout_margin="10dp"
+        android:layout_height="50dp" />
+
+</LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@mipmap/zixunhuixian"
+        android:scaleType="fitXY"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="家电坏了怎么办，我们在家里用家电应该注意什么？"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_width="50dp"
+            android:scaleType="fitXY"
+            android:layout_margin="10dp"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@mipmap/zixunhuixian"
+        android:scaleType="fitXY"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="三个品牌的手机，你知道哪个最容易死机？你中招了吗？"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_width="50dp"
+            android:src="@mipmap/shougongju"
+            android:scaleType="fitXY"
+            android:layout_margin="10dp"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>
