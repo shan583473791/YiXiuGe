@@ -26,12 +26,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!-- 主入口-->
-        <activity android:name=".activity.Hello">
+        <activity android:name=".activity.DengLu_Activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--注册页面-->
+        <activity android:name=".activity.DengLu_Activity_ZhuCe"/>
+        <!--忘记密码页面-->
+        <activity android:name=".activity.DengLu_Activity_WangJiMiMa"/>
+        <!--密码页面-->
+        <activity android:name=".activity.DengLu_Activity_MiMa"/>
+        <!--主页面-->
+        <activity android:name=".activity.Main_Activity"/>
         <!---友盟权限   开始  -->
         <meta-data android:value="YOUR_APP_KEY" android:name="UMENG_APPKEY"/>
         <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>

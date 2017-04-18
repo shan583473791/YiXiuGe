@@ -3,6 +3,12 @@ package com.zykj.yixiu.utils;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
+
 import java.util.logging.Logger;
 
 /** //工具类
@@ -35,7 +41,7 @@ public class Y {
      */
     public static  void i(String  str){
         if(isLog)
-            Logger.i(str);
+            com.orhanobut.logger.Logger.i(str);
     }
 
     /**

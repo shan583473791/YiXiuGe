@@ -56,6 +56,7 @@
             android:layout_width="150dp"
             android:text="获取验证码"
             android:textColor="#ffffff"
+            android:id="@+id/activity_denglu_zhuce_bt_yanzhengma"
             android:textSize="16sp"
             android:background="@mipmap/zhuce_chengtiao"
             android:layout_height="40dp" />
@@ -66,6 +67,7 @@
         android:text="注册"
         android:textColor="#ffffff"
         android:layout_margin="20dp"
+        android:id="@+id/activity_denglu_zhuce_bt_zhuce"
         android:textSize="18sp"
         android:layout_height="wrap_content" />
 </LinearLayout>

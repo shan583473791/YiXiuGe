@@ -15,11 +15,11 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="哈尔滨"
+            android:id="@+id/activity_main_tv_dizhi"
             android:textColor="#00cccc"
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -32,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="15dp"
+            android:id="@+id/activity_main_iv_geren"
             android:src="@mipmap/avtivity_top" />
     </LinearLayout>
 
@@ -57,6 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:id="@+id/activity_main_ll_shouji"
         android:background="@mipmap/zuobai_bj">
 
         <ImageView
@@ -125,7 +127,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-
+            android:id="@+id/activity_main_ll_diannao"
             android:orientation="vertical">
 
             <LinearLayout
@@ -186,6 +188,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:id="@+id/activity_main_ll_jiadian"
         android:background="@mipmap/zuobai_bj">
 
         <FrameLayout
