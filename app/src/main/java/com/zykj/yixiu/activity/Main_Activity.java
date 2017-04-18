@@ -87,7 +87,7 @@ public class Main_Activity extends Activity {
                         .setTitleBgColor(0xFF333333)//标题背景颜色 Night mode
                         .setBgColor(0xFF000000)//滚轮背景颜色 Night mode
                         .setContentTextSize(18)//滚轮文字大小
-                        .setLinkage(false)//设置是否联动，默认true
+                        .setLinkage(true)//设置是否联动，默认true
                         .setLabels("省", "市", "区")//设置选择的三级单位
                         .setCyclic(false, false, false)//循环与否
                         .setSelectOptions(1, 1, 1)  //设置默认选中项
@@ -103,10 +103,16 @@ public class Main_Activity extends Activity {
                 startActivity(intent);
                 break;
             case R.id.activity_main_ll_shouji:
+                intent = new Intent(this,ShouJiWeiXiu_Activity_Main.class);
+                startActivity(intent);
                 break;
             case R.id.activity_main_ll_diannao:
+                intent = new Intent(this,DianNaoWeiXiu_Activity_Main.class);
+                startActivity(intent);
                 break;
             case R.id.activity_main_ll_jiadian:
+                intent = new Intent(this,JiaDianWeiXiu_Activity_Main.class);
+                startActivity(intent);
                 break;
         }
     }

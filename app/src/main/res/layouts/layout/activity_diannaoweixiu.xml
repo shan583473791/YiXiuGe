@@ -13,11 +13,12 @@
         android:paddingBottom="3dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:id="@+id/title_fanhui"
         android:paddingTop="3dp"
         MyTopBar:rightBackground="@mipmap/activity_fh"
         MyTopBar:titleText="电脑维修"
         MyTopBar:titleTextColor="#00cccc"
-        MyTopBar:titleTextSize="8sp"></com.zykj.yixiu.app.MyTopBar>
+        MyTopBar:titleTextSize="9sp"></com.zykj.yixiu.app.MyTopBar>
 
     <include
         layout="@layout/avtivity_include_line"
@@ -28,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
-
+        android:id="@+id/diannaoweixiu_activity_ll_pinpai"
         android:background="#ffffff"
         android:padding="5dp">
 
@@ -38,7 +39,7 @@
             android:gravity="center"
             android:paddingLeft="20dp"
             android:text="品牌"
-            android:textColor="#000000"
+            android:textColor="#6b6b6b"
             android:textSize="20sp" />
 
         <ImageView
@@ -52,7 +53,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:gravity="right"
-
+            android:id="@+id/diannao_tv_pinpai"
             android:text="联想"
             android:textColor="#00cccc"
             android:textSize="18sp" />
@@ -67,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
-
+        android:id="@+id/diannaoweixiu_activity_ll_leixing"
         android:background="#ffffff"
         android:padding="5dp">
 
@@ -77,7 +78,7 @@
             android:gravity="center"
             android:paddingLeft="20dp"
             android:text="类型"
-            android:textColor="#000000"
+            android:textColor="#6b6b6b"
             android:textSize="20sp" />
 
         <ImageView
@@ -91,7 +92,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:gravity="right"
-
+            android:id="@+id/diannao_tv_leixing"
             android:text="笔记本"
             android:textColor="#00cccc"
             android:textSize="18sp" />
@@ -106,7 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
-
+        android:id="@+id/diannaoweixiu_activity_ll_xinghao"
         android:background="#ffffff"
         android:padding="5dp">
 
@@ -116,7 +117,8 @@
             android:gravity="center"
             android:paddingLeft="20dp"
             android:text="型号"
-            android:textColor="#000000"
+
+            android:textColor="#6b6b6b"
             android:textSize="20sp" />
 
         <ImageView
@@ -130,7 +132,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:gravity="right"
-
+            android:id="@+id/diannao_tv_xinghao"
             android:text="Y460A-ITH"
             android:textColor="#00cccc"
             android:textSize="18sp" />
@@ -145,7 +147,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
-
+        android:id="@+id/diannaoweixiu_activity_ll_guzhang"
         android:background="#ffffff"
         android:padding="5dp">
 
@@ -155,7 +157,7 @@
             android:gravity="center"
             android:paddingLeft="20dp"
             android:text="故障"
-            android:textColor="#000000"
+            android:textColor="#6b6b6b"
             android:textSize="20sp" />
 
         <ImageView
@@ -169,7 +171,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:gravity="right"
-
+            android:id="@+id/diannao_tv_guzhang"
             android:text="主板"
             android:textColor="#00cccc"
             android:textSize="18sp" />
@@ -206,22 +208,26 @@
         android:background="#ffffff"
         android:padding="5dp">
 <FrameLayout
-    android:layout_width="match_parent"
-    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:id="@+id/diannaoweixiu_activity_fl_tu"
     android:layout_height="match_parent">
     <ImageView
         android:layout_width="wrap_content"
         android:src="@mipmap/huifang"
+        android:id="@+id/diannao_iv_di"
         android:layout_height="wrap_content" />
     <ImageView
         android:layout_width="wrap_content"
         android:src="@mipmap/baiyuan"
         android:layout_margin="13dp"
+        android:id="@+id/diannao_iv_zhong"
         android:layout_height="wrap_content" />
     <ImageView
         android:layout_width="wrap_content"
         android:src="@mipmap/huishi"
         android:layout_margin="22dp"
+        android:id="@+id/diannao_iv_xiao"
         android:layout_height="wrap_content" />
 </FrameLayout>
 

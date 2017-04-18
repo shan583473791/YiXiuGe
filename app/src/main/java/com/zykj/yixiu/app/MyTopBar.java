@@ -95,13 +95,13 @@ public class MyTopBar extends RelativeLayout {
         right.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickListener.leftClick();
+                rightClick.Click(v);
             }
         });
         leftImageView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickListener.rightClick();
+                leftClick.Click(v);
             }
         });
     }
@@ -109,11 +109,23 @@ public class MyTopBar extends RelativeLayout {
     public MyTopBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-    private TopBarClickListener clickListener; //成员变量用于映射外部传入的对象
+    //添加点击事件的set函数
+    public void setLeftClick(MyTopBar.leftClick leftClick) {
+        this.leftClick = leftClick;
+    }
+
+    public void setRightClick(MyTopBar.rightClick rightClick) {
+        this.rightClick = rightClick;
+    }
+    private leftClick leftClick; //成员变量用于映射外部传入的对象
+    private rightClick rightClick; //成员变量用于映射外部传入的对象
     //添加回调接口
-    public  interface  TopBarClickListener{
-        void leftClick(); //左侧点击
-        void rightClick(); //右侧点击
+    public  interface  leftClick{
+        void Click(View view); //左侧点击
+
+    }  public  interface  rightClick{
+        void Click(View view); //左侧点击
+
     }
 
 }

@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.zykj.yixiu.utils.Y;
 
+import org.xutils.x;
+
 /**
  * Created by zykj on 2017/4/8.
  */
@@ -15,6 +17,7 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         Y.context = this;
+        x.Ext.init(this);
     }
 
 }

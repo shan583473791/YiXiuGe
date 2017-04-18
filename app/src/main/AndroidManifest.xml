@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
+    <!--SD卡读写权限-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
@@ -19,6 +20,13 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!---友盟权限   结束  -->
+
+    <!--SD卡读权限-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <!--SD卡卸载安装权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--图片选择器权限   开始-->
+    <!--图片选择器权限    结束-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -40,6 +48,14 @@
         <activity android:name=".activity.DengLu_Activity_MiMa"/>
         <!--主页面-->
         <activity android:name=".activity.Main_Activity"/>
+        <!--家电维修页面-->
+        <activity android:name=".activity.JiaDianWeiXiu_Activity_Main"/>
+        <!--手机维修页面-->
+        <activity android:name=".activity.ShouJiWeiXiu_Activity_Main"/>
+        <!--电脑维修页面-->
+        <activity android:name=".activity.DianNaoWeiXiu_Activity_Main"/>
+        <!--个人中心页面-->
+        <activity android:name=".activity.GeRenZhongXin_Activity_Main"/>
         <!---友盟权限   开始  -->
         <meta-data android:value="YOUR_APP_KEY" android:name="UMENG_APPKEY"/>
         <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>

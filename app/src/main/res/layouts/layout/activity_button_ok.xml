@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <Button
+        android:id="@+id/botton_ok"
         android:layout_width="match_parent"
-            android:layout_margin="20dp"
-            android:background="@mipmap/ok_q"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@mipmap/ok_q"
         android:text="确定"
         android:textColor="#ffffff"
-        android:textSize="15sp"
-
-        android:layout_height="wrap_content"
-        android:id="@+id/button" />
+        android:textSize="15sp" />
 </LinearLayout>

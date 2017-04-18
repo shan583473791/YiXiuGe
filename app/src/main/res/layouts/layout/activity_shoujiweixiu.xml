@@ -13,11 +13,12 @@
         android:paddingBottom="3dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:id="@+id/title_fanhui"
         android:paddingTop="3dp"
         MyTopBar:rightBackground="@mipmap/activity_fh"
         MyTopBar:titleText="手机维修"
         MyTopBar:titleTextColor="#00cccc"
-        MyTopBar:titleTextSize="8sp"></com.zykj.yixiu.app.MyTopBar>
+        MyTopBar:titleTextSize="9sp"></com.zykj.yixiu.app.MyTopBar>
 
     <include
         layout="@layout/avtivity_include_line"
@@ -25,9 +26,9 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
+        android:id="@+id/shouji_activity_ll_pinpai"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/shouji_pinpai"
         android:layout_marginTop="5dp"
         android:background="#ffffff"
         android:padding="5dp">
@@ -39,7 +40,7 @@
             android:paddingLeft="20dp"
             android:text="品牌"
 
-            android:textColor="#000000"
+            android:textColor="#6b6b6b"
             android:textSize="20sp" />
 
         <ImageView
@@ -49,13 +50,13 @@
             android:src="@mipmap/lanshu" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:text="请选择您的手机品牌"
             android:id="@+id/shouji_tv_pinpai"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="请选择您的手机品牌"
             android:textColor="#bcbcbc"
             android:textSize="18sp" />
 
@@ -67,10 +68,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/shouji_activity_ll_xinghao"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
-        android:id="@+id/shouji_xinghao"
         android:background="#ffffff"
         android:padding="5dp">
 
@@ -80,7 +81,7 @@
             android:gravity="center"
             android:paddingLeft="20dp"
             android:text="型号"
-            android:textColor="#000000"
+            android:textColor="#6b6b6b"
             android:textSize="20sp" />
 
         <ImageView
@@ -91,27 +92,28 @@
 
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:text="请选择您的手机型号"
             android:id="@+id/shouji_tv_xinghao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="请选择您的手机型号"
             android:textColor="#bcbcbc"
             android:textSize="18sp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:background="@null"
+            android:padding="10dp"
             android:src="@mipmap/huijiao" />
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/shouji_activity_ll_guzhang"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/shouji_guzhang"
         android:layout_marginTop="5dp"
         android:background="#ffffff"
 
@@ -123,7 +125,7 @@
             android:gravity="center"
             android:paddingLeft="20dp"
             android:text="故障"
-            android:textColor="#000000"
+            android:textColor="#6b6b6b"
             android:textSize="20sp" />
 
         <ImageView
@@ -133,13 +135,13 @@
             android:src="@mipmap/lanshu" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-            android:text="请选择您的手机故障"
             android:id="@+id/shouji_tv_guzhang"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="请选择您的手机故障"
             android:textColor="#bcbcbc"
             android:textSize="18sp" />
 
@@ -149,6 +151,7 @@
             android:padding="10dp"
             android:src="@mipmap/huijiao" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -157,13 +160,13 @@
         android:padding="5dp">
 
         <EditText
+            android:id="@+id/shouji_et_miaoshu"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_marginLeft="10dp"
+            android:layout_weight="1"
             android:background="@null"
-            android:hint="请选择您手机的故障进行简单描述"
-            android:id="@+id/editText2" />
+            android:hint="请选择您手机的故障进行简单描述" />
     </LinearLayout>
 
     <LinearLayout
@@ -172,30 +175,38 @@
         android:layout_marginTop="5dp"
         android:background="#ffffff"
         android:padding="5dp">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_marginLeft="20dp"
-    android:layout_height="match_parent">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:src="@mipmap/huifang"
-        android:layout_height="wrap_content" />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:src="@mipmap/baiyuan"
-        android:layout_margin="13dp"
-        android:layout_height="wrap_content" />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:src="@mipmap/huishi"
-        android:layout_margin="22dp"
-        android:layout_height="wrap_content" />
-</FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/shouji_fl_tu"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp">
+
+            <ImageView
+                android:id="@+id/shouji_iv_di"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/huifang" />
+
+            <ImageView
+                android:id="@+id/shouji_iv_zhong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="13dp"
+                android:src="@mipmap/baiyuan" />
+
+            <ImageView
+                android:id="@+id/shouji_iv_xiao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="22dp"
+                android:src="@mipmap/huishi" />
+        </FrameLayout>
 
     </LinearLayout>
 
-    <include android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+    <include
         layout="@layout/activity_button_ok"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
