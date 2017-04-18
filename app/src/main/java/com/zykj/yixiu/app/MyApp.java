@@ -2,6 +2,7 @@ package com.zykj.yixiu.app;
 
 import android.app.Application;
 
+import com.hss01248.dialog.StyledDialog;
 import com.zykj.yixiu.utils.Y;
 
 import org.xutils.x;
@@ -16,6 +17,7 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        StyledDialog.init(this);
         Y.context = this;
         x.Ext.init(this);
     }

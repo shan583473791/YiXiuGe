@@ -56,6 +56,8 @@
         <activity android:name=".activity.DianNaoWeiXiu_Activity_Main"/>
         <!--个人中心页面-->
         <activity android:name=".activity.GeRenZhongXin_Activity_Main"/>
+        <!--呼叫服务页面-->
+        <activity android:name=".activity.HuJiaoFuWu_Activity_Main"/>
         <!---友盟权限   开始  -->
         <meta-data android:value="YOUR_APP_KEY" android:name="UMENG_APPKEY"/>
         <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>

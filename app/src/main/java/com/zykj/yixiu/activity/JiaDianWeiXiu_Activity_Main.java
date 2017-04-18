@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bumptech.glide.Glide;
+import com.hss01248.dialog.StyledDialog;
 import com.zykj.yixiu.R;
 import com.zykj.yixiu.app.MyDianNao;
 import com.zykj.yixiu.app.MyDianNao_LeiXing;
@@ -24,7 +25,9 @@ import com.zykj.yixiu.utils.YURL;
 import org.xutils.http.RequestParams;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -80,6 +83,9 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
     List<MyDianNao_LeiXing> list; //品牌的数据源
     int mobileIndex = -1;  //用于检测是否选择了品牌
     List<MyDianNao> lists; //品牌的数据源
+    private Map map;
+    private int pid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,9 +105,10 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
         switch (view.getId()) {
             case R.id.jiadianweixiu_activity_ll_pinpai:
                 //发起请求
-                Y.get(new RequestParams(YURL.FIND_BY_APPLIANCE_BRAND), new Y.MyCommonCall<String>() {
+                Y.get(YURL.FIND_BY_APPLIANCE_BRAND,null, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
+                        StyledDialog.dismissLoading();
                         if (Y.getRespCode(result)) {
                             //成功
                             list = JSON.parseArray(Y.getData(result), MyDianNao_LeiXing.class);
@@ -115,6 +122,9 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                                         //选择后的监听器
                                         jiadianTvPinpai.setText(list.get(options1).getName());
                                         if ( mobileIndex != options1){
+
+
+                                            pid = list.get(options1).getId();
 
                                             mobileIndex = options1; // 当前选择的索引
                                             //如果从选型号 把下面清空
@@ -149,10 +159,14 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                 break;
             case R.id.jiadianweixiu_activity_ll_leixing:
                 //发起请求
-                Y.get(new RequestParams(YURL.FIND_APPLIANCE_CATEGORY), new Y.MyCommonCall<String>() {
+                Map map=new HashMap();
+                map.put("pid",pid);
+
+                Y.get(YURL.FIND_APPLIANCE_CATEGORY, map, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
+                            StyledDialog.dismissLoading();
                             //成功
                             list = JSON.parseArray(Y.getData(result), MyDianNao_LeiXing.class);
                             //创建选择器
@@ -197,10 +211,14 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                 break;
             case R.id.jiadianweixiu_activity_ll_xinghao:
                 //发起请求
-                Y.get(new RequestParams(YURL.FIND_BY_APPLIANCE_MODEL), new Y.MyCommonCall<String>() {
+                map = new HashMap();
+                map.put("pid",pid);
+                map.put("category",list.get(mobileIndex).getId());
+                Y.get(YURL.FIND_BY_APPLIANCE_MODEL,null, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
+                            StyledDialog.dismissLoading();
                             //成功
                             list = JSON.parseArray(Y.getData(result), MyDianNao_LeiXing.class);
                             //创建选择器
@@ -242,7 +260,7 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                 break;
             case R.id.jiadianweixiu_activity_ll_guzhang:
                 //发起请求
-                Y.get(new RequestParams(YURL.FIND_PHONE_FAULT), new Y.MyCommonCall<String>() {
+                Y.get(YURL.FIND_PHONE_FAULT,null, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
@@ -299,6 +317,8 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                 });
                 break;
             case R.id.botton_ok:
+                intent = new Intent(this,HuJiaoFuWu_Activity_Main.class);
+                startActivity(intent);
                 break;
         }
     }

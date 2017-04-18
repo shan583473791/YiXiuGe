@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bumptech.glide.Glide;
+import com.hss01248.dialog.StyledDialog;
 import com.zykj.yixiu.R;
 import com.zykj.yixiu.app.MobileBean;
 import com.zykj.yixiu.app.MyDianNao;
@@ -24,7 +25,9 @@ import com.zykj.yixiu.utils.YURL;
 import org.xutils.http.RequestParams;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -79,6 +82,7 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
     List<MyDianNao> lists; //品牌的数据源
     List<MyDianNao_LeiXing> list; //品牌的数据源
     int mobileIndex = -1;  //用于检测是否选择了品牌
+    private Map map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,12 +101,12 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.diannaoweixiu_activity_ll_pinpai://选择品牌
-
                     //发起请求
-                Y.get(new RequestParams(YURL.FIND_COMPUTER_BRAND), new Y.MyCommonCall<String>() {
+                Y.get(YURL.FIND_COMPUTER_BRAND, null,new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
+                            StyledDialog.dismissLoading();
                             //成功
                             lists = JSON.parseArray(Y.getData(result), MyDianNao.class);
                             //创建选择器
@@ -145,16 +149,17 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                         }
                     }
                 });
-
-
                 break;
             case R.id.diannaoweixiu_activity_ll_leixing:
                     //品牌下的类型
                 //发起请求
-                Y.get(new RequestParams(YURL.FIND_COMPUTER_CATEGORY), new Y.MyCommonCall<String>() {
+                Map map=new HashMap();
+                map.put("pid",lists.get(mobileIndex).getId());
+                Y.get(YURL.FIND_COMPUTER_CATEGORY, map, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
+                            StyledDialog.dismissLoading();
                             //成功
                             list = JSON.parseArray(Y.getData(result), MyDianNao_LeiXing.class);
                             //创建选择器
@@ -202,10 +207,15 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
             case R.id.diannaoweixiu_activity_ll_xinghao:
                 //类型下的型号
                 //发起请求
-                Y.get(new RequestParams(YURL.FIND_BY_COMPUTER_MODEL), new Y.MyCommonCall<String>() {
+                map = new HashMap();
+                map.put("pid",lists.get(mobileIndex).getId());
+                map.put("category",1);
+
+                Y.get(YURL.FIND_BY_COMPUTER_MODEL,map, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
+                            StyledDialog.dismissLoading();
                             //成功
                             list = JSON.parseArray(Y.getData(result), MyDianNao_LeiXing.class);
                             //创建选择器
@@ -247,10 +257,11 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                 break;
             case R.id.diannaoweixiu_activity_ll_guzhang:
                 //发起请求
-                Y.get(new RequestParams(YURL.FIND_PHONE_FAULT), new Y.MyCommonCall<String>() {
+                Y.get(YURL.FIND_PHONE_FAULT,null, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
+                            StyledDialog.dismissLoading();
                             //成功
                             lists = JSON.parseArray(Y.getData(result), MyDianNao.class);
                             //创建选择器

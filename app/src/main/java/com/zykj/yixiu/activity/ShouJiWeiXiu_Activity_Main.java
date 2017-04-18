@@ -16,6 +16,7 @@ import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.hss01248.dialog.StyledDialog;
 import com.zykj.yixiu.R;
 import com.zykj.yixiu.app.MobileBean;
 import com.zykj.yixiu.app.MyTopBar;
@@ -25,7 +26,9 @@ import com.zykj.yixiu.utils.YURL;
 import org.xutils.http.RequestParams;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -98,10 +101,11 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
         switch (view.getId()) {
             case R.id.shouji_activity_ll_pinpai: //选择品牌
                 //发起请求
-                Y.get(new RequestParams(YURL.FIND_PHONE_BRAND), new Y.MyCommonCall<String>() {
+                Y.get(YURL.FIND_PHONE_BRAND,null, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
+                            StyledDialog.dismissLoading();
                             //成功
                             lists = JSON.parseArray(Y.getData(result), MobileBean.class);
                             //创建选择器
@@ -149,11 +153,12 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                 } else {
                     //开始获取型号数据
                     //发起请求
-                    RequestParams rp = new RequestParams(YURL.FIND_PHONE_MODEL);
-                    rp.addBodyParameter("pid", lists.get(mobileIndex).getId() + "");
-                    Y.get(rp, new Y.MyCommonCall<String>() {
+                    Map map=new HashMap();
+                    map.put("pid",lists.get(mobileIndex).getId());
+                    Y.get(YURL.FIND_PHONE_MODEL,map ,new Y.MyCommonCall<String>() {
                         @Override
                         public void onSuccess(String result) {
+                            StyledDialog.dismissLoading();
                             if (Y.getRespCode(result)) {
                                 //成功
                                 lists = JSON.parseArray(Y.getData(result), MobileBean.class);
@@ -195,10 +200,11 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                 break;
             case R.id.shouji_activity_ll_guzhang:
                 //发起请求
-                Y.get(new RequestParams(YURL.FIND_PHONE_FAULT), new Y.MyCommonCall<String>() {
+                Y.get(YURL.FIND_PHONE_FAULT,null, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
+                            StyledDialog.dismissLoading();
                             //成功
                             lists = JSON.parseArray(Y.getData(result), MobileBean.class);
                             //创建选择器

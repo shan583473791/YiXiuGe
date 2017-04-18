@@ -13,6 +13,7 @@
         android:paddingBottom="3dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:id="@+id/title_fanhui"
         android:paddingTop="3dp"
         MyTopBar:rightBackground="@mipmap/activity_fh"
         MyTopBar:titleText="呼叫服务"
@@ -28,6 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
+        android:id="@+id/hujiaofuwu_activity_ll_shijian"
+        android:gravity="center_vertical"
         android:background="#ffffff"
         android:padding="5dp">
 
@@ -43,13 +46,17 @@
             android:layout_marginLeft="2dp"
             android:src="@mipmap/lanshu" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:id="@+id/hujiao_tv_shijian"
             android:layout_marginLeft="10dp"
-            android:hint="请选择您的服务时间" />
+            android:text="请选择您的服务时间"
+            android:textColor="#bcbcbc"
+            android:textSize="18sp" />
+
 
         <ImageView
             android:layout_width="wrap_content"
@@ -57,7 +64,6 @@
             android:padding="10dp"
             android:src="@mipmap/huijiao" />
     </LinearLayout>
-
 
 
     <LinearLayout
@@ -85,19 +91,24 @@
             android:layout_weight="1"
             android:background="@null"
             android:layout_marginLeft="10dp"
+            android:id="@+id/hujiaofuwu_activity_et_dizhi"
+            android:textColorHint="#bcbcbc"
             android:hint="请选择您的服务地址" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:id="@+id/hujiaofuwu_activity_iv_dizhi"
             android:src="@mipmap/huijiao" />
     </LinearLayout>
+
     <Button
         android:layout_width="match_parent"
         android:layout_margin="20dp"
         android:background="@mipmap/ok_q"
         android:text="确认发布"
+        android:id="@+id/hujiaofuwu_activity_ok"
         android:textColor="#ffffff"
         android:textSize="15sp"
         android:layout_height="wrap_content" />
