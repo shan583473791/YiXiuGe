@@ -170,6 +170,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                                             shoujiTvGuzhang.setHint("请选择您手机的故障");
                                             shoujiTvGuzhang.setText("");
                                         }
+                                        mobileIndex = options1; // 当前选择的索引
                                     }
                                 }).build();
                                 //把lists 进行转换

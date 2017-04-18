@@ -24,6 +24,12 @@ public class YURL {
     public static   final  String  FIND_COMPUTER_BRAND=HOST+"findComputerBrand";
     //电脑类型
     public static   final  String  FIND_COMPUTER_CATEGORY=HOST+"findComputerCategory";
+    //家电品牌
+    public static   final  String  FIND_BY_APPLIANCE_BRAND=HOST+"findByApplianceBrand";
+    //家电类型
+    public static   final  String  FIND_APPLIANCE_CATEGORY=HOST+"findApplianceCategory";
+    //家电型号
+    public static   final  String  FIND_BY_APPLIANCE_MODEL=HOST+"findByApplianceModel";
 
 
 }
