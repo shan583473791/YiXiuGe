@@ -36,12 +36,10 @@
             android:src="@mipmap/avtivity_top" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:scaleType="fitXY"
-        android:src="@mipmap/lunbo" />
+        android:layout_height="160dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

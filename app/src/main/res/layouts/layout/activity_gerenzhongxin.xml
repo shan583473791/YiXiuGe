@@ -93,6 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:id="@+id/grzx_activity_weiwancheng"
                 android:background="@mipmap/lu1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -147,6 +148,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:id="@+id/grzx_activity_yiwancheng"
                     android:layout_weight="1">
 
                     <ImageView
@@ -179,8 +181,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:id="@+id/grzx_activity_yiquxiao"
                     android:layout_weight="1">
-
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -211,6 +213,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:id="@+id/grzx_activity_wodeziliao"
             android:background="#ffffff"
             android:orientation="horizontal">
 
@@ -256,6 +259,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:id="@+id/grzx_activity_wodeqianbao"
                 android:background="#ffffff"
                 android:orientation="horizontal">
 
@@ -295,6 +299,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="#ffffff"
+                    android:id="@+id/grzx_activity_dizhiguanli"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -330,6 +335,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="#ffffff"
+                android:id="@+id/grzx_activity_renzhengxinxi"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -370,6 +376,7 @@
             android:layout_marginTop="7dp"
             android:background="#ffffff"
             android:gravity="center"
+            android:id="@+id/grzx_activity_pingtaifuwu"
             android:orientation="horizontal">
 
             <ImageView
@@ -409,6 +416,7 @@
                 android:layout_height="40dp"
                 android:background="#ffffff"
                 android:gravity="center_vertical"
+                android:id="@+id/grzx_activity_guanyuwomen"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -445,6 +453,7 @@
                     android:layout_height="40dp"
                     android:layout_marginTop="8dp"
                     android:background="#ffffff"
+                    android:id="@+id/grzx_activity_shezhi"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 

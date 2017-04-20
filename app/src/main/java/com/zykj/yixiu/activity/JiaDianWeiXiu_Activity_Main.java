@@ -124,7 +124,6 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                                         if ( mobileIndex != options1){
 
 
-                                            pid = list.get(options1).getId();
 
                                             mobileIndex = options1; // 当前选择的索引
                                             //如果从选型号 把下面清空
@@ -160,8 +159,7 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
             case R.id.jiadianweixiu_activity_ll_leixing:
                 //发起请求
                 Map map=new HashMap();
-                map.put("pid",pid);
-
+                map.put("pid",list.get(mobileIndex).getId());
                 Y.get(YURL.FIND_APPLIANCE_CATEGORY, map, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
@@ -179,7 +177,7 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                                         //选择后的监听器
                                         jiadianTvLeixing.setText(list.get(options1).getName());
                                         if ( mobileIndex != options1){
-
+                                            pid = list.get(options1).getId();
                                             mobileIndex = options1; // 当前选择的索引
                                             //如果从选型号 把下面清空
                                             jiadianTvXinghao.setHint("请选择您家电的型号");
@@ -212,8 +210,8 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
             case R.id.jiadianweixiu_activity_ll_xinghao:
                 //发起请求
                 map = new HashMap();
-                map.put("pid",pid);
-                map.put("category",list.get(mobileIndex).getId());
+                map.put("pid",list.get(mobileIndex).getId());
+                map.put("category",pid);
                 Y.get(YURL.FIND_BY_APPLIANCE_MODEL,null, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {

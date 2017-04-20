@@ -14,6 +14,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="3dp"
+        android:id="@+id/title_fanhui"
         MyTopBar:rightBackground="@mipmap/activity_fh"
         MyTopBar:titleText="编辑地址"
         MyTopBar:titleTextColor="#00cccc"
@@ -50,6 +51,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:id="@+id/bianjidizhi_activity_ll_shoujihao"
         android:layout_marginTop="5dp"
         android:background="#ffffff"
         android:padding="5dp">
@@ -62,8 +64,6 @@
             android:text="手机号"
             android:textColor="#494949"
             android:textSize="20sp" />
-
-
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -98,9 +98,6 @@
             android:textColor="#494949"
             android:textSize="20sp"
             android:id="@+id/textView2" />
-
-
-
         <EditText
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -110,7 +107,13 @@
             android:hint="请输入您的详细地址"
             android:background="@null"
             android:id="@+id/editText" />
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@null"
+            android:id="@+id/bianjidizhi_activity_dizhi"
+            android:src="@mipmap/huijiao" />
     </LinearLayout>
 
 

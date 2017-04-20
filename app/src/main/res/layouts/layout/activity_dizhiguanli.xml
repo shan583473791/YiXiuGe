@@ -16,8 +16,9 @@
         android:paddingTop="3dp"
         MyTopBar:rightBackground="@mipmap/activity_fh"
         MyTopBar:titleText="地址管理"
+        android:id="@+id/title_fanhui"
         MyTopBar:titleTextColor="#00cccc"
-        MyTopBar:titleTextSize="8sp"></com.zykj.yixiu.app.MyTopBar>
+        MyTopBar:titleTextSize="9sp"></com.zykj.yixiu.app.MyTopBar>
 
     <include
         layout="@layout/avtivity_include_line"
@@ -209,6 +210,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
+        android:id="@+id/dizhiguanli_activity_xinzengdizhi"
            android:gravity="center_vertical"
         android:background="#ffffff"
         android:padding="5dp">

@@ -14,10 +14,11 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="3dp"
+        android:id="@+id/title_fanhui"
         MyTopBar:rightBackground="@mipmap/activity_fh"
         MyTopBar:titleText="更换手机号"
         MyTopBar:titleTextColor="#00cccc"
-        MyTopBar:titleTextSize="8sp"></com.zykj.yixiu.app.MyTopBar>
+        MyTopBar:titleTextSize="9sp"></com.zykj.yixiu.app.MyTopBar>
 
     <include
         layout="@layout/avtivity_include_line"
