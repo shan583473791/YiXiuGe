@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@mipmap/beijing"
     android:orientation="vertical">
-
     <com.zykj.yixiu.app.MyTopBar
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -97,4 +96,5 @@
         android:src="@mipmap/lanhengxian"
         android:layout_height="match_parent" />
 </LinearLayout>
+
 </LinearLayout>

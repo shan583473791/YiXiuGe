@@ -16,8 +16,9 @@
         android:paddingTop="3dp"
         MyTopBar:rightBackground="@mipmap/activity_fh"
         MyTopBar:titleText="我的资料"
+        android:id="@+id/title_fanhui"
         MyTopBar:titleTextColor="#00cccc"
-        MyTopBar:titleTextSize="8sp"></com.zykj.yixiu.app.MyTopBar>
+        MyTopBar:titleTextSize="9sp"></com.zykj.yixiu.app.MyTopBar>
 
     <include
         layout="@layout/avtivity_include_line"
@@ -200,7 +201,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:background="#ffffff"
-
+        android:id="@+id/wodeziliao_activity_diqu"
         android:padding="5dp">
 
         <TextView
@@ -224,6 +225,7 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:gravity="right"
+            android:id="@+id/wodeziliao_tv_diqu"
             android:text="黑龙江 哈尔滨" />
 
         <ImageView
