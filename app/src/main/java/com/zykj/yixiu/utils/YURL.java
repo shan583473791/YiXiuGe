@@ -32,4 +32,15 @@ public class YURL {
     public static   final  String  FIND_BY_APPLIANCE_MODEL=HOST+"findByApplianceModel";
 
 
+    //注册
+    public static   final  String  REGISTER=HOST+"register";
+
+    //密码
+    public static   final  String  SETPASSWORD=HOST+"setpassword";
+
+    //登录
+    public static   final  String  LOGIN=HOST+"login";
+
+    //    上传头像
+    public static   final  String  UPLOADICON=HOST+"uploadIcon";
 }

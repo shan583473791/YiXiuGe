@@ -49,7 +49,6 @@ public class Main_Activity extends Activity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         banner.setImageLoader(new GlideImageLoader());
-
         List<Integer> images = new ArrayList<>();
         images.add(R.mipmap.lunbo);
         images.add(R.mipmap.lunbo);

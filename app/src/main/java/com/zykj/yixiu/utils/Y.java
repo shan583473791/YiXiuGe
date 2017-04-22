@@ -23,11 +23,15 @@ public class Y {
 
     public  static  boolean isLog=true; //控制日志打印的开关
 
+    public static User user;
+    public  static  String TOKEN;  //用户类
+    public static User getUser() {
+        return user;
+    }
 
-
-
-
-
+    public static void setUser(User user) {
+        Y.user = user;
+    }
 
     /**
      * 吐司功能只需要传入一个 字符串

@@ -8,8 +8,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.hss01248.dialog.StyledDialog;
 import com.umeng.analytics.MobclickAgent;
 import com.zykj.yixiu.R;
+import com.zykj.yixiu.utils.User;
+import com.zykj.yixiu.utils.Y;
+import com.zykj.yixiu.utils.YURL;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -44,6 +52,25 @@ public class DengLu_Activity_main extends Activity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.activity_denglu_bt_denglu:
+
+                String shoujihao = activityDengluEtShoujihao.getText().toString().trim();
+                String mima = activityDengluEtMima.getText().toString().trim();
+                Map<String, String> map = new HashMap<>();
+                map.put("phone", shoujihao);
+                map.put("password", mima);
+                Y.get(YURL.LOGIN, map, new Y.MyCommonCall<String>() {
+                    @Override
+                    public void onSuccess(String result) {
+                        StyledDialog.dismissLoading();
+                        if (Y.getRespCode(result)) {
+
+                            Y.t("登录成功");
+                            User lists = JSON.parseObject(Y.getData(result), User.class);
+                            String data = Y.getData(result);
+                            startActivity(new Intent(DengLu_Activity_main.this,Main_Activity.class));
+                        }
+                    }
+                });
                 intent = new Intent(this,Main_Activity.class);
                 startActivity(intent);
                 break;
