@@ -51,6 +51,7 @@
                 android:src="@mipmap/dahuiquan"
                 android:layout_marginRight="18dp"
                 android:layout_gravity="right"
+                android:id="@+id/wodeziliao_activity_iv_touxiang"
                 android:layout_height="match_parent" />
 
             <ImageView
@@ -97,6 +98,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
+            android:id="@+id/wodeziliao_et_name"
             android:background="@null"
             android:hint="请输入您姓名" />
 
@@ -136,6 +138,7 @@
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:gravity="center"
+            android:id="@+id/rb"
             android:layout_height="match_parent" >
 
             <RadioButton
@@ -143,7 +146,8 @@
                 android:textColor="#868686"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioButton"
+                android:id="@+id/rb_nan"
+                android:checked="true"
                 android:layout_weight="1" />
 
             <RadioButton
@@ -151,7 +155,7 @@
                 android:layout_width="wrap_content"
                 android:textColor="#868686"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioButton2"
+                android:id="@+id/rb_nv"
                 android:layout_weight="1" />
         </RadioGroup>
 
@@ -178,13 +182,14 @@
             android:layout_marginLeft="20dp"
             android:src="@mipmap/lanshu" />
 
-        <TextView
+        <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="18947893453" />
+            android:id="@+id/wodeziliao_et_shoujihao"
+            android:hint="18947893453" />
 
 
         <ImageView
@@ -210,6 +215,7 @@
             android:gravity="center"
             android:paddingLeft="20dp"
             android:text="地区"
+
             android:textColor="#6b6b6b"
             android:textSize="20sp" />
 
@@ -237,4 +243,9 @@
             android:src="@mipmap/huijiao" />
     </LinearLayout>
 
+    <include
+        layout="@layout/activity_button_ok"
+        android:layout_width="match_parent"
+        android:id="@id/botton_ok"
+        android:layout_height="wrap_content" />
 </LinearLayout>

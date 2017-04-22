@@ -45,6 +45,7 @@
             <ImageView
                 android:layout_width="90dp"
                 android:layout_height="85dp"
+                android:id="@+id/gerenzhongxin_iv_touxiang"
                 android:layout_gravity="center"
                 android:src="@mipmap/touxiang" />
 
