@@ -3,6 +3,7 @@ package com.zykj.yixiu.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,6 +13,7 @@ import com.youth.banner.Banner;
 import com.zykj.yixiu.R;
 import com.zykj.yixiu.app.GlideImageLoader;
 import com.zykj.yixiu.app.OptionsPicke;
+import com.zykj.yixiu.utils.Y;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +58,7 @@ public class Main_Activity extends Activity {
         banner.setImages(images);
         //banner设置方法全部调用完毕时最后调用
         banner.start();
+
     }
 
     @OnClick({R.id.activity_main_tv_dizhi, R.id.activity_main_iv_geren, R.id.activity_main_ll_shouji, R.id.activity_main_ll_diannao, R.id.activity_main_ll_jiadian})
@@ -67,6 +70,8 @@ public class Main_Activity extends Activity {
                     @Override
                     public void selectListener(String province, String city, String district) {
                         activityMainTvDizhi.setText(city);
+                        Y.user.setProvince(province);
+                        Y.user.setCity(city);
                     }
                 });
 //                //三级联动

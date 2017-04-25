@@ -2,6 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/baiduditu_et_dizhi"
+        android:hint="请输入地址"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="match_parent"
+        android:text="确认"
+        android:id="@+id/bt_queren"
+        android:layout_height="wrap_content" />
     <com.baidu.mapapi.map.MapView
         android:id="@+id/bmapView"
         android:layout_width="match_parent"

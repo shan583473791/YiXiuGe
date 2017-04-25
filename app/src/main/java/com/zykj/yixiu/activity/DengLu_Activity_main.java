@@ -63,16 +63,13 @@ public class DengLu_Activity_main extends Activity {
                     public void onSuccess(String result) {
                         StyledDialog.dismissLoading();
                         if (Y.getRespCode(result)) {
-
                             Y.t("登录成功");
-                            User lists = JSON.parseObject(Y.getData(result), User.class);
-                            String data = Y.getData(result);
+                           Y.user = JSON.parseObject(Y.getData(result), User.class);
                             startActivity(new Intent(DengLu_Activity_main.this,Main_Activity.class));
                         }
                     }
                 });
-                intent = new Intent(this,Main_Activity.class);
-                startActivity(intent);
+
                 break;
             case R.id.activity_denglu_tv_zhuche:
                 intent = new Intent(this,DengLu_Activity_ZhuCe.class);

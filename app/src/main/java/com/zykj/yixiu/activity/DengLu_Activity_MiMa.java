@@ -30,12 +30,14 @@ public class DengLu_Activity_MiMa extends Activity {
     EditText mimaEtChongmima;
     @Bind(R.id.mima_bt_ok)
     Button mimaBtOk;
+    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mima);
         ButterKnife.bind(this);
+        token = getIntent().getStringExtra("token");
     }
 
     @OnClick(R.id.mima_bt_ok)
@@ -48,7 +50,7 @@ public class DengLu_Activity_MiMa extends Activity {
         }
         Map<String, String> map = new HashMap<>();
         map.put("password",mima2);
-        map.put("token",Y.user.getToken());
+        map.put("token",token);
         Y.get(YURL.SETPASSWORD, map, new Y.MyCommonCall<String>() {
             @Override
             public void onSuccess(String result) {

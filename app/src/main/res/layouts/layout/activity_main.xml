@@ -101,8 +101,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="80dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
                 android:gravity="bottom"
                 android:text="mobile"
                 android:textColor="#e4e4e4"
@@ -164,7 +164,7 @@
                 android:layout_marginBottom="15dp"
                 android:gravity="bottom"
                 android:text="computer"
-                android:paddingLeft="5dp"
+                android:paddingLeft="10dp"
                 android:textColor="#e4e4e4"
                 android:textSize="35sp" />
         </LinearLayout>

@@ -60,7 +60,7 @@ public class DengLu_Activity_ZhuCe extends Activity {
             case R.id.activity_denglu_zhuce_bt_zhuce:
                 String shoujihao = zhuceShoujihao.getText().toString().trim();
                 String yanzhengma = zhuceYanzhengma.getText().toString().trim();
-                Map<String, String> map = new HashMap<>();
+                Map<String, String> map = new HashMap<String, String>();
                 map.put("phone", shoujihao);
                 map.put("vcode", yanzhengma);
                 map.put("type", 0 + "");
@@ -69,16 +69,18 @@ public class DengLu_Activity_ZhuCe extends Activity {
                     public void onSuccess(String result) {
                         StyledDialog.dismissLoading();
                         if (Y.getRespCode(result)) {
-                            Y.t(JSON.parseObject(result).getString("message"));
                             String data = Y.getData(result);
-                            Y.TOKEN = data;//保存token
-                            startActivity(new Intent(DengLu_Activity_ZhuCe.this, DengLu_Activity_MiMa.class));
+                            Intent zhuCeIntent = new Intent(getApplicationContext(), DengLu_Activity_MiMa.class);
+                            zhuCeIntent.putExtra("token", data);
+                            startActivity(zhuCeIntent);
+                        } else {
+                            Y.t(JSON.parseObject(result).getString("message"));
                         }
-                        Y.t(JSON.parseObject(result).getString("message"));
+
                     }
                 });
-                intent = new Intent(this, DengLu_Activity_MiMa.class);
-                startActivity(intent);
+
+
                 break;
         }
     }

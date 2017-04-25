@@ -3,6 +3,7 @@ package com.zykj.yixiu.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,7 +16,10 @@ import com.zykj.yixiu.utils.Y;
 import com.zykj.yixiu.utils.YURL;
 
 import org.xutils.http.RequestParams;
+import org.xutils.image.ImageOptions;
+import org.xutils.x;
 
+import java.io.File;
 import java.util.List;
 
 import butterknife.Bind;
@@ -68,6 +72,13 @@ public class GeRenZhongXin_Activity_Main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerenzhongxin);
         ButterKnife.bind(this);
+    if (!TextUtils.isEmpty(Y.user.getIcon())){
+        ImageOptions imageOptions=new ImageOptions.Builder()
+                .setCircular(true)
+                .build();
+        x.image().bind(gerenzhongxinIvTouxiang,YURL.HOST+Y.user.getIcon(),imageOptions);
+    }
+
     }
 
     @OnClick({R.id.gerenzhongxin_activity_fanhui, R.id.grzx_activity_weiwancheng, R.id.grzx_activity_yiwancheng, R.id.grzx_activity_yiquxiao, R.id.grzx_activity_wodeziliao, R.id.grzx_activity_wodeqianbao, R.id.grzx_activity_dizhiguanli, R.id.grzx_activity_renzhengxinxi, R.id.grzx_activity_pingtaifuwu, R.id.grzx_activity_guanyuwomen, R.id.grzx_activity_shezhi})
@@ -83,8 +94,10 @@ public class GeRenZhongXin_Activity_Main extends Activity {
             case R.id.grzx_activity_yiquxiao:
                 break;
             case R.id.grzx_activity_wodeziliao:
-                intent = new Intent(this, WoDeZiLiao_Activity_Main.class);
-                startActivity(intent);
+                Intent ziliao=new Intent(GeRenZhongXin_Activity_Main.this,WoDeZiLiao_Activity_Main.class);
+                startActivity(ziliao);
+               /* intent = new Intent(this, WoDeZiLiao_Activity_Main.class);
+                startActivity(intent);*/
                 break;
             case R.id.grzx_activity_wodeqianbao:
                 intent = new Intent(this, WoDeQianBao_Activity_Main.class);
@@ -114,9 +127,14 @@ public class GeRenZhongXin_Activity_Main extends Activity {
         GalleryFinal.openGallerySingle(REQUEST_CODE_GALLERY, new GalleryFinal.OnHanlderResultCallback() {
             @Override
             public void onHanlderSuccess(int reqeustCode, List<PhotoInfo> resultList) {
-                Glide.with(getApplication()).load(resultList.get(0).getPhotoPath()).into(gerenzhongxinIvTouxiang);
+                ImageOptions imageOptions=new ImageOptions.Builder()
+                        .setCircular(true)
+                        .build();
+                x.image().bind(gerenzhongxinIvTouxiang,resultList.get(0).getPhotoPath(),imageOptions);
+                //Glide.with(getApplication()).load(resultList.get(0).getPhotoPath()).into(gerenzhongxinIvTouxiang);
                 RequestParams params=new RequestParams(YURL.UPLOADICON);
-                params.addBodyParameter("icon",resultList.get(0).getPhotoPath());
+                params.setMultipart(true);
+                params.addBodyParameter("icon",new File(resultList.get(0).getPhotoPath()));
                 params.addBodyParameter("token", Y.TOKEN);
                 Y.post(params, new Y.MyCommonCall<String>() {
                     @Override

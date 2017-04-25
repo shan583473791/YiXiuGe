@@ -75,25 +75,21 @@ public class Y {
      * @return
      */
     public static Callback.Cancelable get(String url, Map<String,String> params, MyCommonCall<String> call){
-        if(params==null)
-            i(url);
-        else
-            i(url+params.toString());
-
-
         //请求的对象
-        RequestParams rp  =new RequestParams(url);
-
+        RequestParams rp = new RequestParams(url);
+        if (params == null)
+            i(url);
         //检测外部是否传入了参数
-        if(params!=null){
+        if (params != null) {
             //把参数取出来这是到rp
-            for (Map.Entry<String,String> entry :params.entrySet()) {
-                rp.addBodyParameter(entry.getKey(),entry.getValue());
+            i(rp.toString());
+            for (Map.Entry<String, String> entry : params.entrySet()) {
+                rp.addBodyParameter(entry.getKey(), entry.getValue());
             }
         }
         // 只要发起Get请求就开启对话框
         StyledDialog.buildLoading().show();
-        return   x.http().get(rp, call);
+        return x.http().get(rp, call);
     }
     /**
      * post请求  返回成功回调
@@ -103,6 +99,7 @@ public class Y {
      */
     public static Callback.Cancelable post(RequestParams params, MyCommonCall<String> call){
         StyledDialog.buildLoading().show();
+
         return   x.http().post(params, call);
     }
     /**

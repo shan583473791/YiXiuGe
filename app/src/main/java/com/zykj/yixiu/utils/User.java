@@ -26,24 +26,24 @@ public class User {
      * user_id : 2
      */
 
-    private String icon;
-    private String phone;
-    private String sex;
-    private String idcard_image1;
-    private String idcard_image2;
+    private String icon; //头像地址
+    private String phone;//电话号
+    private String sex;//性别
+    private String idcard_image1; //身份证正面 "idcard/bac82340-05e2-4307-a932-ab2382b46ea4.jsp",
+    private String idcard_image2;//身份证反面 "idcard/3f925c3c-9c3c-4dec-ac4c-8ae4b19347ed.txt",
     private String headimg;
-    private String ali_account;
-    private int score;
-    private int type;
-    private String password;
-    private String city;
-    private String username;
-    private String regtime;
-    private String token;
-    private int order_num;
-    private String province;
-    private String ali_name;
-    private int user_id;
+    private String ali_account; //支付宝账号
+    private int score;//评分 买家没用
+    private int type; //用户类型
+    private String password;//密码
+    private String city; //城市
+    private String username; //用户名
+    private String regtime;//注册时间
+    private String token;//令牌
+    private int order_num;//订单数量
+    private String province;//省
+    private String ali_name; //支付宝名
+    private int user_id;  //用户ID
 
     public String getIcon() {
         return icon;
