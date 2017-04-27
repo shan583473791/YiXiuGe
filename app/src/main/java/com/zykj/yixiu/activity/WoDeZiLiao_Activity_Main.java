@@ -120,10 +120,10 @@ public class WoDeZiLiao_Activity_Main extends Activity {
                         Glide.with(getApplication()).load(resultList.get(0).getPhotoPath()).into(wodeziliaoActivityIvTouxiang);
                         iv_xiao.setVisibility(View.GONE);
                         RequestParams params=new RequestParams(YURL.UPLOADICON);
-                        params.addBodyParameter("icon",new File(resultList.get(0).getPhotoPath()));
+                        File file = new File(resultList.get(0).getPhotoPath());
+                        params.addBodyParameter("icon",file);
                         params.addBodyParameter("token", Y.TOKEN);
-                        params.setMultipart(true);
-                        Y.post(params, new Y.MyCommonCall<String>() {
+                        Y.postFile(params, new Y.MyCommonCall<String>() {
                             @Override
                             public void onSuccess(String result) {
                                 StyledDialog.dismissLoading();

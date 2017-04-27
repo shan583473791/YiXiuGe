@@ -16,8 +16,13 @@ import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.GeoCoder;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
+import com.hss01248.dialog.StyledDialog;
 import com.zykj.yixiu.R;
 import com.zykj.yixiu.app.MyTopBar;
+import com.zykj.yixiu.utils.Y;
+import com.zykj.yixiu.utils.YURL;
+
+import org.xutils.http.RequestParams;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -43,6 +48,10 @@ public class BianJiDiZhi_Activity_Main extends Activity {
     @Bind(R.id.botton_ok)
     Button bottonOk;
     private Intent intent;
+    private String dizhi,qu;
+    private String wei;
+    private String jing,bianma;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,30 +87,46 @@ public class BianJiDiZhi_Activity_Main extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==100&&resultCode==101){
             Bundle extras = data.getExtras();
-            String dizhi = extras.getString("dizhi");
+            dizhi = extras.getString("dizhi");
+            qu = extras.getString("qu");
+            wei = extras.getString("wei");
+            jing = extras.getString("jing");
+            bianma = extras.getString("dizhibianma");
             editText.setText(dizhi);
         }
     }
 
     @OnClick(R.id.botton_ok)
     public void onViewClicked() {
-        GeoCoder geoCoder = GeoCoder.newInstance();
-        OnGetGeoCoderResultListener listener = new OnGetGeoCoderResultListener() {
-            public void onGetGeoCodeResult(GeoCodeResult result) {
-                if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
-                    //没有检索到结果
-                }
-                //获取地理编码结果
-            }
+
+//        name: 姓名
+//        address: 地址
+//        phone: 电话号码
+//        user_id:用户ID
+//        region:区
+//        lat:纬度
+//        lon:经度
+//        city_name:城市名
+//        city_code:城市编码
+//        isdefault: 是否是默认 0 不默认  1 默认
+        RequestParams params=new RequestParams(YURL.ADDADDRESS);
+        params.addBodyParameter("name",editText.getText().toString().trim());
+        params.addBodyParameter("address",dizhi);
+        params.addBodyParameter("phone",textView2.getText().toString());
+        params.addBodyParameter("user_id",Y.user.getUser_id()+"");
+        params.addBodyParameter("region",qu);
+        params.addBodyParameter("lat",wei);
+        params.addBodyParameter("lon",jing);
+        params.addBodyParameter("city_name",Y.user.getCity());
+        params.addBodyParameter("city_code",bianma);
+        params.addBodyParameter("isdefault",1+"");
+        Y.post(null, new Y.MyCommonCall<String>() {
 
             @Override
-            public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
-                if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
-                    //没有找到检索结果
-                }
-                //获取反向地理编码结果
+            public void onSuccess(String result) {
+                StyledDialog.dismissLoading();
             }
-          //  geoCoder.setOnGetGeoCodeResultListener(listener);
-        };
+        });
+   finish();
     }
 }

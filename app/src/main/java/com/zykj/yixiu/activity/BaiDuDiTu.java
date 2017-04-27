@@ -35,6 +35,7 @@ import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.zykj.yixiu.R;
+import com.zykj.yixiu.utils.Y;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -55,6 +56,12 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
     LocationClient mClient;//客户端对象
     boolean isFirstLoc = true;//检测是否是第一次定位
     private LatLng latLng;
+    private String string;
+    private String district;
+    private double jing;
+    private double wei;
+    private LatLng location;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,16 +114,17 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
      *
      * @param v
      */
-    @Override
+    @OnClick(R.id.bt_queren)
     public void onClick(View v) {
-        String string = etDz.getText().toString();//获取信息
+        //获取信息
+        string = etDz.getText().toString();
         if (TextUtils.isEmpty(string)) {
             Toast.makeText(this, "请输入地址", Toast.LENGTH_SHORT).show();
             return;
         } else {
             //发起地理编码
             GeoCoder geoCoder = GeoCoder.newInstance();
-            geoCoder.geocode(new GeoCodeOption().city("哈尔滨").address(string));
+            geoCoder.geocode(new GeoCodeOption().city(Y.user.getCity()).address(string));
             //设置地理编码的监听事件
             geoCoder.setOnGetGeoCodeResultListener(new OnGetGeoCoderResultListener() {
                 @Override
@@ -129,7 +137,14 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
                         biaoZhu(geoCodeResult.getLocation());
                         MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(geoCodeResult.getLocation());//更新百度地图对象
                         baiduMap.animateMapStatus(update);//把更新的位置交给百度
-
+                        Intent intent =new Intent();
+                        intent.putExtra("dizhibianma",location);
+                        intent.putExtra("dizhi",string);
+                        intent.putExtra("qu",district);
+                        intent.putExtra("jing",jing);
+                        intent.putExtra("wei",wei);
+                        setResult(101,intent);
+                        finish();
                     }
                 }
 
@@ -202,10 +217,16 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
                         @Override
                         public void run() {
                             etDz.setText(bdLocation.getAddrStr());
+
                         }
                     });
+                    Y.user.setCity(bdLocation.getCity());
+                    district = bdLocation.getDistrict();
+                    jing = bdLocation.getLatitude();
+                    wei = bdLocation.getLongitude();
                     isFirstLoc = false;//改成false 已经不是第一次定位了
                 }
+
                 //绘制一个标注
                 OverlayOptions overlayOptions = new MarkerOptions()
                         .icon(BitmapDescriptorFactory.fromResource(R.mipmap.zb))
@@ -277,17 +298,5 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
     protected void onPause() {
         super.onPause();
         bmapView.onPause();
-    }
-
-
-
-    @OnClick(R.id.bt_queren)
-    public void onViewClicked() {
-        String trim = etDz.getText().toString().trim();
-        Intent intent = getIntent();
-        intent.putExtra("dizhi",trim);
-        this.setResult(101,intent);
-        this.finish();
-
     }
 }

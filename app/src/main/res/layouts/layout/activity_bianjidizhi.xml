@@ -146,5 +146,6 @@
     <include
         layout="@layout/activity_button_ok"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content" />
 </LinearLayout>

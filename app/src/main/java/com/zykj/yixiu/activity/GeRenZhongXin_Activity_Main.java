@@ -133,10 +133,10 @@ public class GeRenZhongXin_Activity_Main extends Activity {
                 x.image().bind(gerenzhongxinIvTouxiang,resultList.get(0).getPhotoPath(),imageOptions);
                 //Glide.with(getApplication()).load(resultList.get(0).getPhotoPath()).into(gerenzhongxinIvTouxiang);
                 RequestParams params=new RequestParams(YURL.UPLOADICON);
-                params.setMultipart(true);
-                params.addBodyParameter("icon",new File(resultList.get(0).getPhotoPath()));
+                File file = new File(resultList.get(0).getPhotoPath());
+                params.addBodyParameter("icon",file);
                 params.addBodyParameter("token", Y.TOKEN);
-                Y.post(params, new Y.MyCommonCall<String>() {
+                Y.postFile(params, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         StyledDialog.dismissLoading();
