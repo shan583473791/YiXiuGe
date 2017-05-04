@@ -57,11 +57,6 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
     boolean isFirstLoc = true;//检测是否是第一次定位
     private LatLng latLng;
     private String string;
-    private String district;
-    private double jing;
-    private double wei;
-    private LatLng location;
-
 
 
     @Override
@@ -138,18 +133,13 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
                         biaoZhu(geoCodeResult.getLocation());
                         MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(geoCodeResult.getLocation());//更新百度地图对象
                         baiduMap.animateMapStatus(update);//把更新的位置交给百度
-                        Intent intent =new Intent();
-                        intent.putExtra("dizhibianma",location);
-                        intent.putExtra("dizhi",string);
-                        intent.putExtra("qu",district);
-                        intent.putExtra("jing",jing);
-                        intent.putExtra("wei",wei);
-                        Y.user_tianJia.setLat(wei+"");
-                        Y.user_tianJia.setLon(jing+"");
-                        Y.user_tianJia.setRegion(district);
-                        Y.user_tianJia.setAddress(string);
-                        Y.user_tianJia.setCity_code(location+"");
-                        setResult(101,intent);
+                        Intent intent = new Intent();
+//                        intent.putExtra("dizhibianma",location);
+                        intent.putExtra("dizhi", string);
+//                        intent.putExtra("qu",district);
+//                        intent.putExtra("jing",jing);
+//                        intent.putExtra("wei",wei);
+                        setResult(101, intent);
                         finish();
                     }
                 }
@@ -217,6 +207,20 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
                 //更新地图位置
                 latLng = new LatLng(bdLocation.getLatitude(), bdLocation.getLongitude());
                 if (isFirstLoc) {//判断是否是第一次定位
+                try {
+                    Y.user_tianJia.setLat(bdLocation.getLatitude() + "");
+                    Y.user_tianJia.setLon(bdLocation.getLongitude() + "");
+                    Y.user_tianJia.setRegion(bdLocation.getDistrict());//区
+                    Y.user_tianJia.setAddress(bdLocation.getAddrStr());
+                    Y.user_tianJia.setCity_code(bdLocation.getCityCode());
+                    Y.i(Y.user_tianJia.getLat() + "纬度");
+                    Y.i(Y.user_tianJia.getLon() + "经度");
+                    Y.i(Y.user_tianJia.getRegion() + "区");
+                    Y.i(Y.user_tianJia.getAddress() + "地址");
+                    Y.i(Y.user_tianJia.getCity_code() + "城市编码");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
                     centerLocation();
                     Toast.makeText(BaiDuDiTu.this, bdLocation.getAddrStr(), Toast.LENGTH_SHORT).show();
                     runOnUiThread(new Runnable() {
@@ -227,9 +231,6 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
                         }
                     });
                     Y.user.setCity(bdLocation.getCity());
-                    district = bdLocation.getDistrict();
-                    jing = bdLocation.getLatitude();
-                    wei = bdLocation.getLongitude();
                     isFirstLoc = false;//改成false 已经不是第一次定位了
                 }
 

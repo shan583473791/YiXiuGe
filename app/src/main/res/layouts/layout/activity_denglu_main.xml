@@ -28,7 +28,8 @@
         android:layout_gravity="center_horizontal"
         android:background="@mipmap/denglu_toumingtiao"
         android:layout_height="45dp"
-        android:id="@+id/activity_denglu_et_shoujihao" />
+        android:id="@+id/activity_denglu_et_shoujihao"
+        android:text="18745044776" />
 
     <EditText
         android:layout_width="240dp"
@@ -38,7 +39,8 @@
         android:id="@+id/activity_denglu_et_mima"
         android:layout_gravity="center_horizontal"
         android:background="@mipmap/denglu_toumingtiao"
-        android:layout_height="45dp" />
+        android:layout_height="45dp"
+        android:text="123456" />
 
 
     <Button

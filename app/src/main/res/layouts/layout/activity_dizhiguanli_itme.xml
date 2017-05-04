@@ -91,14 +91,16 @@
                         android:layout_height="30dp"
                         android:id="@+id/dizhiguanli_itme_bianji"
                         android:layout_marginRight="10dp"
+                        android:focusable="false"
                         android:background="@mipmap/lanfangxian"
                         android:text="编辑"
                         android:layout_gravity="center"
                         android:textColor="#949494" />
-
+                    <!--focusable     取消焦点-->
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+                        android:focusable="false"
                         android:id="@+id/dizhiguanli_itme_shanchu"
                         android:layout_marginRight="10dp"
                         android:background="@mipmap/lanfangxian"

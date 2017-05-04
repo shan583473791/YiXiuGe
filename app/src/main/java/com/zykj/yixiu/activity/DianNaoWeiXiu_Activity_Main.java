@@ -3,6 +3,7 @@ package com.zykj.yixiu.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -85,6 +86,8 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
     int mobileIndex = -1;  //用于检测是否选择了品牌
     private Map map;
     private ShouJi shouJi;
+    private int id;
+    private String photoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,8 +135,8 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                                             diannaoTvGuzhang.setHint("请选择您电脑的故障");
                                             diannaoTvGuzhang.setText("");
                                         }
-                                        shouJi.setPINPAI(diannaoTvPinpai.getText().toString());
                                         mobileIndex = options1; // 当前选择的索引
+                                        opv=null;
                                     }
                                 }).build();
                             //把lists 进行转换
@@ -158,7 +161,7 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                 //品牌下的类型
                 //发起请求
                 Map map = new HashMap();
-                map.put("pid", lists.get(mobileIndex).getId());
+                map.put("pid", lists.get(mobileIndex).getId()+"");
                 Y.get(YURL.FIND_COMPUTER_CATEGORY, map, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
@@ -174,7 +177,7 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                                     @Override
                                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                                         //选择后的监听器
-                                        diannaoTvLeixing.setText(lists.get(options1).getName());
+                                        diannaoTvLeixing.setText(list.get(options1).getName().toString());
                                         if (mobileIndex != options1) {
 
                                             mobileIndex = options1; // 当前选择的索引
@@ -184,8 +187,8 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                                             diannaoTvGuzhang.setHint("请选择您电脑的故障");
                                             diannaoTvGuzhang.setText("");
                                         }
-                                        shouJi.setXINGHAO(diannaoTvLeixing.getText().toString());
                                         mobileIndex = options1; // 当前选择的索引
+                                        opv=null;
                                     }
                                 }).build();
                             //把lists 进行转换
@@ -206,14 +209,13 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                     }
                 });
 
-
                 break;
             case R.id.diannaoweixiu_activity_ll_xinghao:
                 //类型下的型号
                 //发起请求
                 map = new HashMap();
-                map.put("pid", lists.get(mobileIndex).getId());
-                map.put("category", 1);
+                map.put("pid", lists.get(mobileIndex).getId()+"");
+                map.put("category",list.get(mobileIndex).getId()+"");
 
                 Y.get(YURL.FIND_BY_COMPUTER_MODEL, map, new Y.MyCommonCall<String>() {
                     @Override
@@ -230,7 +232,7 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                                     @Override
                                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                                         //选择后的监听器
-                                        diannaoTvXinghao.setText(lists.get(options1).getName());
+                                        diannaoTvXinghao.setText(list.get(options1).getName());
                                         if (mobileIndex != options1) {
 
                                             mobileIndex = options1; // 当前选择的索引
@@ -238,8 +240,8 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                                             diannaoTvGuzhang.setHint("请选择您电脑的故障");
                                             diannaoTvGuzhang.setText("");
                                         }
-                                        shouJi.setXINGHAO(diannaoTvXinghao.getText().toString());
                                         mobileIndex = options1; // 当前选择的索引
+                                        opv=null;
                                     }
                                 }).build();
                             //把lists 进行转换
@@ -275,7 +277,6 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                                 public void onOptionsSelect(int options1, int options2, int options3, View v) {
                                     //选择后的监听器
                                     diannaoTvGuzhang.setText(lists.get(options1).getName());
-                                    shouJi.setGUZHANG(diannaoTvGuzhang.getText().toString());
                                 }
                             }).build();
                             //把lists 进行转换
@@ -308,10 +309,10 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                     public void onHanlderSuccess(int reqeustCode, List<PhotoInfo> resultList) {
                         for (int i = 0; i < resultList.size(); i++) {
                             if (reqeustCode == REQUEST_CODE_GALLERY) {
+                                photoPath = resultList.get(i).getPhotoPath();
                                 Glide.with(getApplication()).load(resultList.get(i).getPhotoPath()).into(diannaoIvDi);
                                 diannaoIvZhong.setVisibility(View.INVISIBLE);
                                 diannaoIvXiao.setVisibility(View.INVISIBLE);
-                                shouJi.setTUPIAN(resultList.get(i).getPhotoPath());
                             }
                         }
                     }
@@ -322,11 +323,25 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                 });
                 break;
             case R.id.botton_ok:
-                shouJi.setMIAOSHU(diannaoEtMiaoshu.getText().toString().trim());
-                intent = new Intent(this, HuJiaoFuWu_Activity_Main.class);
-                intent.putExtra("type","shouji");
-                intent.putExtra("DianNao", shouJi);
-                startActivity(intent);
+                String pinpai = diannaoTvPinpai.getText().toString();
+                String xinghao = diannaoTvXinghao.getText().toString();
+                String leixing = diannaoTvLeixing.getText().toString();
+                String guzhang = diannaoTvXinghao.getText().toString();
+                String miaoshu = diannaoEtMiaoshu.getText().toString().trim();
+                shouJi=new ShouJi();
+                shouJi.setPINPAI(pinpai);
+                shouJi.setGUZHANG(guzhang);
+                shouJi.setXINGHAO(xinghao);
+                shouJi.setLEIXING(xinghao);
+                shouJi.setTUPIAN(photoPath);
+                shouJi.setMIAOSHU(miaoshu);
+                if (!TextUtils.isEmpty(diannaoTvPinpai.getText())&&!TextUtils.isEmpty(diannaoTvXinghao.getText())&&!TextUtils.isEmpty(diannaoTvLeixing.getText())&&!TextUtils.isEmpty(diannaoTvXinghao.getText())){
+                    intent = new Intent(this, HuJiaoFuWu_Activity_Main.class);
+                    intent.putExtra("type","C");
+                    intent.putExtra("Bean", shouJi);
+                    startActivity(intent);
+                }
+
                 break;
         }
     }

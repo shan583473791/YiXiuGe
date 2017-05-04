@@ -30,9 +30,9 @@ public class Y {
 
     public static boolean isLog = true; //控制日志打印的开关
 
-    public static User user;
+    public static User user=new User();
     public static String TOKEN;  //用户类
-    public  static User_TianJia user_tianJia;
+    public  static User_TianJia user_tianJia =new User_TianJia();
 
     public static User_TianJia getUser_tianJia() {
         return user_tianJia;
@@ -42,15 +42,15 @@ public class Y {
         Y.user_tianJia = user_tianJia;
     }
 
-    public static DiZhiGuanLi_User getDizhiguanliUser() {
-        return DIZHIGUANLI_USER;
-    }
+//    public static DiZhiGuanLi_User getDizhiguanliUser() {
+//        return DIZHIGUANLI_USER;
+//    }
 
-    public static void setDizhiguanliUser(DiZhiGuanLi_User dizhiguanliUser) {
-        DIZHIGUANLI_USER = dizhiguanliUser;
-    }
-
-    public static DiZhiGuanLi_User DIZHIGUANLI_USER;
+//    public static void setDizhiguanliUser(DiZhiGuanLi_User dizhiguanliUser) {
+//        DIZHIGUANLI_USER = dizhiguanliUser;
+//    }
+//
+//    public static DiZhiGuanLi_User DIZHIGUANLI_USER;
 
     public static User getUser() {
         return user;

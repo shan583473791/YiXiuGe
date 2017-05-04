@@ -85,6 +85,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
     private OptionsPickerView opv;
     private Intent intent;
     private ShouJi shouJi;
+    private String photoPath;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,7 +101,6 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
     }
     @OnClick({R.id.shouji_activity_ll_pinpai, R.id.shouji_activity_ll_xinghao, R.id.shouji_activity_ll_guzhang, R.id.shouji_fl_tu, R.id.botton_ok})
     public void onViewClicked(View view) {
-        shouJi =new ShouJi();
         switch (view.getId()) {
             case R.id.shouji_activity_ll_pinpai: //选择品牌
                 //发起请求
@@ -130,7 +130,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                                         shoujiTvGuzhang.setText("");
 
                                     }
-                                    shouJi.setPINPAI(shoujiTvPinpai.getText().toString());
+
                                     mobileIndex = options1; // 当前选择的索引
                                 }
                             }).build();
@@ -181,7 +181,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                                             shoujiTvGuzhang.setText("");
 
                                         }
-                                        shouJi.setXINGHAO(shoujiTvXinghao.getText().toString());
+
                                         mobileIndex = options1; // 当前选择的索引
                                     }
                                 }).build();
@@ -220,7 +220,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                                 public void onOptionsSelect(int options1, int options2, int options3, View v) {
                                     //选择后的监听器
                                     shoujiTvGuzhang.setText(lists.get(options1).getName());
-                                    shouJi.setGUZHANG(shoujiTvGuzhang.getText().toString());
+
 
                                 }
                             }).build();
@@ -249,7 +249,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                         .build();
                 //把所有配置与GalleryFinal进行关联
                 GalleryFinal.init(coreConfig);
-                GalleryFinal.openGallerySingle(REQUEST_CODE_GALLERY,  new GalleryFinal.OnHanlderResultCallback() {
+                GalleryFinal.openGallerySingle(REQUEST_CODE_GALLERY,   new GalleryFinal.OnHanlderResultCallback() {
                     @Override
                     public void onHanlderSuccess(int reqeustCode, List<PhotoInfo> resultList) {
                         for (int i = 0; i < resultList.size(); i++) {
@@ -257,8 +257,8 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                                 Glide.with(getApplication()).load(resultList.get(i).getPhotoPath()).into(shoujiIvDi);
                                 shoujiIvZhong.setVisibility(View.INVISIBLE);
                                 shoujiIvXiao.setVisibility(View.INVISIBLE);
-                                resultList.get(i).getPhotoPath();
-                                shouJi.setTUPIAN(resultList.get(i).getPhotoPath());
+                                 photoPath = resultList.get(i).getPhotoPath();
+
                             }
                         }
                     }
@@ -268,10 +268,21 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                 });
                 break;
             case R.id.botton_ok:
-                shouJi.setGUZHANG(shoujiEtMiaoshu.getText().toString().trim());
+                String pinpai = shoujiTvPinpai.getText().toString();
+                String xinghao = shoujiTvXinghao.getText().toString();
+                String leixing = "";
+                String guzhang =shoujiTvXinghao.getText().toString();
+                String miaoshu = shoujiEtMiaoshu.getText().toString().trim();
+                shouJi=new ShouJi();
+                shouJi.setPINPAI(pinpai);
+                shouJi.setGUZHANG(guzhang);
+                shouJi.setXINGHAO(xinghao);
+                shouJi.setLEIXING(xinghao);
+                shouJi.setTUPIAN(photoPath);
+                shouJi.setMIAOSHU(miaoshu);
                 intent = new Intent(this,HuJiaoFuWu_Activity_Main.class);
-                intent.putExtra("type","shouji");
-                intent.putExtra("ShouJi", shouJi);
+                intent.putExtra("type","A");
+                intent.putExtra("Bean", shouJi);
                 startActivity(intent);
                 break;
         }

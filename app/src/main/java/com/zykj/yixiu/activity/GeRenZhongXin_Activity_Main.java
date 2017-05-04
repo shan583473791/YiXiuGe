@@ -72,12 +72,16 @@ public class GeRenZhongXin_Activity_Main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerenzhongxin);
         ButterKnife.bind(this);
-    if (!TextUtils.isEmpty(Y.user.getIcon())){
-        ImageOptions imageOptions=new ImageOptions.Builder()
-                .setCircular(true)
-                .build();
-        x.image().bind(gerenzhongxinIvTouxiang,YURL.HOST+Y.user.getIcon(),imageOptions);
-    }
+        try {
+            if (!TextUtils.isEmpty(Y.user.getIcon())){
+                ImageOptions imageOptions=new ImageOptions.Builder()
+                        .setCircular(true)
+                        .build();
+                x.image().bind(gerenzhongxinIvTouxiang,YURL.HOST+Y.user.getIcon(),imageOptions);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
