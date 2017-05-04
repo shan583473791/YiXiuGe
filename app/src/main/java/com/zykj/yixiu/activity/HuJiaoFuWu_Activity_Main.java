@@ -176,7 +176,7 @@ public class HuJiaoFuWu_Activity_Main extends Activity {
                                     xiangqing.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            Intent intent = new Intent(HuJiaoFuWu_Activity_Main.this, ShouJi.class);
+                                            Intent intent = new Intent(HuJiaoFuWu_Activity_Main.this, Main_Activity.class);
                                             intent.putExtra("type", "A");
                                             startActivity(intent);
                                             dialog.dismiss();
@@ -211,7 +211,7 @@ public class HuJiaoFuWu_Activity_Main extends Activity {
                     public void onError(Throwable e) {
 
                     }
-                });
+                }).launch();
 
 
                 break;

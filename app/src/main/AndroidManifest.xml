@@ -83,7 +83,12 @@
         <activity android:name=".activity.PingTaiFuWu_Activity_Main"/>
         <!--认证信息页面-->
         <activity android:name=".activity.RenZhengXinXi_Activity_Main"/>
-
+        <!--我的订单未完成页面-->
+        <activity android:name=".activity.WoDeDingDan_Activity_WeiWanCheng"/>
+        <!--我的订单已完成页面-->
+        <activity android:name=".activity.WoDeDingDan_Activity_YiWanCheng"/>
+        <!--我的订单已取消页面-->
+        <activity android:name=".activity.WoDeDingDan_Activity_YiQuXiao"/>
         <!---友盟权限   开始  -->
         <meta-data
             android:name="UMENG_APPKEY"

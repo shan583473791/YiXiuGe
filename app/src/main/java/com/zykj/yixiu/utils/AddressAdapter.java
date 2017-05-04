@@ -52,13 +52,6 @@ public class AddressAdapter   extends  BaseAdapter{
         //优化
         if(convertView==null){
             convertView=View.inflate(context,R.layout.activity_dizhiguanli_itme,null);
-//            h.itemAddressName= (TextView) convertView.findViewById(R.id.dizhiguanli_itme_name);
-//            h.itemAddressPhone= (TextView) convertView.findViewById(R.id.dizhiguanli_itme_shoujihao);
-//            h.itemAddressAdd= (TextView) convertView.findViewById(R.id.dizhiguanli_itme_dizhi);
-//            h.itemTvAddress= (TextView) convertView.findViewById(R.id.item_tv_address);
-//            h.itemIvAddress= (ImageView) convertView.findViewById(R.id.item_iv_address);
-//            h.itemAddressBtBianji= (Button) convertView.findViewById(R.id.dizhiguanli_itme_bianji);
-//            h.itemAddressBtShanchu= (Button) convertView.findViewById(R.id.dizhiguanli_itme_shanchu);
             h =new ViewHolder(convertView);
             convertView.setTag(h);
         }else{
