@@ -52,6 +52,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@null"
+            android:id="@+id/genghuanshoujihao_et_shoujihao"
             android:layout_marginLeft="10dp"
             android:hint="请选择您的手机号" />
 

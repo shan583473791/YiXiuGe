@@ -38,6 +38,8 @@ public class DiZhiGuanLi_User {
      * lat : 45.12342
      */
 
+
+
     private String region;
     private String city_name;
     private double lon;

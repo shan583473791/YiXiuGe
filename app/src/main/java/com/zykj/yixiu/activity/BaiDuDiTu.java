@@ -63,6 +63,7 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
     private LatLng location;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,6 +144,11 @@ class BaiDuDiTu extends AppCompatActivity implements View.OnClickListener {
                         intent.putExtra("qu",district);
                         intent.putExtra("jing",jing);
                         intent.putExtra("wei",wei);
+                        Y.user_tianJia.setLat(wei+"");
+                        Y.user_tianJia.setLon(jing+"");
+                        Y.user_tianJia.setRegion(district);
+                        Y.user_tianJia.setAddress(string);
+                        Y.user_tianJia.setCity_code(location+"");
                         setResult(101,intent);
                         finish();
                     }

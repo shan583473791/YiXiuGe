@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,14 +16,12 @@ import com.bigkoo.pickerview.OptionsPickerView;
 import com.bumptech.glide.Glide;
 import com.hss01248.dialog.StyledDialog;
 import com.zykj.yixiu.R;
-import com.zykj.yixiu.app.MobileBean;
 import com.zykj.yixiu.app.MyDianNao;
 import com.zykj.yixiu.app.MyDianNao_LeiXing;
 import com.zykj.yixiu.app.MyTopBar;
+import com.zykj.yixiu.utils.ShouJi;
 import com.zykj.yixiu.utils.Y;
 import com.zykj.yixiu.utils.YURL;
-
-import org.xutils.http.RequestParams;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -76,6 +75,8 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
     FrameLayout diannaoweixiuActivityFlTu;
     @Bind(R.id.botton_ok)
     Button bottonOk;
+    @Bind(R.id.diannao_et_miaoshu)
+    EditText diannaoEtMiaoshu;
     private ThemeConfig themeConfig;
     private OptionsPickerView opv;
     private Intent intent;
@@ -83,6 +84,7 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
     List<MyDianNao_LeiXing> list; //品牌的数据源
     int mobileIndex = -1;  //用于检测是否选择了品牌
     private Map map;
+    private ShouJi shouJi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,12 +99,13 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
             }
         });
     }
+
     @OnClick({R.id.diannaoweixiu_activity_ll_pinpai, R.id.diannaoweixiu_activity_ll_leixing, R.id.diannaoweixiu_activity_ll_xinghao, R.id.diannaoweixiu_activity_ll_guzhang, R.id.diannaoweixiu_activity_fl_tu, R.id.botton_ok})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.diannaoweixiu_activity_ll_pinpai://选择品牌
-                    //发起请求
-                Y.get(YURL.FIND_COMPUTER_BRAND, null,new Y.MyCommonCall<String>() {
+                //发起请求
+                Y.get(YURL.FIND_COMPUTER_BRAND, null, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
@@ -112,13 +115,13 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                             //创建选择器
                             //选择后的监听器
                             // 当前选择的索引
-                            if (opv==null)
+                            if (opv == null)
                                 opv = new OptionsPickerView.Builder(DianNaoWeiXiu_Activity_Main.this, new OptionsPickerView.OnOptionsSelectListener() {
                                     @Override
                                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                                         //选择后的监听器
                                         diannaoTvPinpai.setText(lists.get(options1).getName());
-                                        if ( mobileIndex != options1){
+                                        if (mobileIndex != options1) {
 
                                             mobileIndex = options1; // 当前选择的索引
                                             //如果从选型号 把下面清空
@@ -129,6 +132,7 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                                             diannaoTvGuzhang.setHint("请选择您电脑的故障");
                                             diannaoTvGuzhang.setText("");
                                         }
+                                        shouJi.setPINPAI(diannaoTvPinpai.getText().toString());
                                         mobileIndex = options1; // 当前选择的索引
                                     }
                                 }).build();
@@ -151,10 +155,10 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                 });
                 break;
             case R.id.diannaoweixiu_activity_ll_leixing:
-                    //品牌下的类型
+                //品牌下的类型
                 //发起请求
-                Map map=new HashMap();
-                map.put("pid",lists.get(mobileIndex).getId());
+                Map map = new HashMap();
+                map.put("pid", lists.get(mobileIndex).getId());
                 Y.get(YURL.FIND_COMPUTER_CATEGORY, map, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
@@ -165,13 +169,13 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                             //创建选择器
                             //选择后的监听器
                             // 当前选择的索引
-                            if (opv==null)
+                            if (opv == null)
                                 opv = new OptionsPickerView.Builder(DianNaoWeiXiu_Activity_Main.this, new OptionsPickerView.OnOptionsSelectListener() {
                                     @Override
                                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                                         //选择后的监听器
-                                        diannaoTvPinpai.setText(lists.get(options1).getName());
-                                        if ( mobileIndex != options1){
+                                        diannaoTvLeixing.setText(lists.get(options1).getName());
+                                        if (mobileIndex != options1) {
 
                                             mobileIndex = options1; // 当前选择的索引
                                             //如果从选型号 把下面清空
@@ -180,6 +184,7 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                                             diannaoTvGuzhang.setHint("请选择您电脑的故障");
                                             diannaoTvGuzhang.setText("");
                                         }
+                                        shouJi.setXINGHAO(diannaoTvLeixing.getText().toString());
                                         mobileIndex = options1; // 当前选择的索引
                                     }
                                 }).build();
@@ -202,16 +207,15 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                 });
 
 
-
                 break;
             case R.id.diannaoweixiu_activity_ll_xinghao:
                 //类型下的型号
                 //发起请求
                 map = new HashMap();
-                map.put("pid",lists.get(mobileIndex).getId());
-                map.put("category",1);
+                map.put("pid", lists.get(mobileIndex).getId());
+                map.put("category", 1);
 
-                Y.get(YURL.FIND_BY_COMPUTER_MODEL,map, new Y.MyCommonCall<String>() {
+                Y.get(YURL.FIND_BY_COMPUTER_MODEL, map, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
@@ -221,19 +225,20 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                             //创建选择器
                             //选择后的监听器
                             // 当前选择的索引
-                            if (opv==null)
+                            if (opv == null)
                                 opv = new OptionsPickerView.Builder(DianNaoWeiXiu_Activity_Main.this, new OptionsPickerView.OnOptionsSelectListener() {
                                     @Override
                                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                                         //选择后的监听器
-                                        diannaoTvPinpai.setText(lists.get(options1).getName());
-                                        if ( mobileIndex != options1){
+                                        diannaoTvXinghao.setText(lists.get(options1).getName());
+                                        if (mobileIndex != options1) {
 
                                             mobileIndex = options1; // 当前选择的索引
                                             //如果从选型号 把下面清空
                                             diannaoTvGuzhang.setHint("请选择您电脑的故障");
                                             diannaoTvGuzhang.setText("");
                                         }
+                                        shouJi.setXINGHAO(diannaoTvXinghao.getText().toString());
                                         mobileIndex = options1; // 当前选择的索引
                                     }
                                 }).build();
@@ -257,7 +262,7 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                 break;
             case R.id.diannaoweixiu_activity_ll_guzhang:
                 //发起请求
-                Y.get(YURL.FIND_PHONE_FAULT,null, new Y.MyCommonCall<String>() {
+                Y.get(YURL.FIND_PHONE_FAULT, null, new Y.MyCommonCall<String>() {
                     @Override
                     public void onSuccess(String result) {
                         if (Y.getRespCode(result)) {
@@ -270,6 +275,7 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                                 public void onOptionsSelect(int options1, int options2, int options3, View v) {
                                     //选择后的监听器
                                     diannaoTvGuzhang.setText(lists.get(options1).getName());
+                                    shouJi.setGUZHANG(diannaoTvGuzhang.getText().toString());
                                 }
                             }).build();
                             //把lists 进行转换
@@ -280,7 +286,7 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                             //添加数据
                             opv.setPicker(strs, null, null);
                             //显示选择器
-                            if (! opv.isShowing()){
+                            if (!opv.isShowing()) {
                                 opv.show();
                             }
                         } else {
@@ -305,16 +311,21 @@ public class DianNaoWeiXiu_Activity_Main extends Activity {
                                 Glide.with(getApplication()).load(resultList.get(i).getPhotoPath()).into(diannaoIvDi);
                                 diannaoIvZhong.setVisibility(View.INVISIBLE);
                                 diannaoIvXiao.setVisibility(View.INVISIBLE);
+                                shouJi.setTUPIAN(resultList.get(i).getPhotoPath());
                             }
                         }
                     }
+
                     @Override
                     public void onHanlderFailure(int requestCode, String errorMsg) {
                     }
                 });
                 break;
             case R.id.botton_ok:
-                intent = new Intent(this,HuJiaoFuWu_Activity_Main.class);
+                shouJi.setMIAOSHU(diannaoEtMiaoshu.getText().toString().trim());
+                intent = new Intent(this, HuJiaoFuWu_Activity_Main.class);
+                intent.putExtra("type","shouji");
+                intent.putExtra("DianNao", shouJi);
                 startActivity(intent);
                 break;
         }

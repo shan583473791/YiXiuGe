@@ -6,8 +6,6 @@ package com.zykj.yixiu.utils;
  */
 
 public class YURL {
-
-
     // 服务器地址
     public static final String BASE_HOST = "http://221.207.184.124:7071/";
     //项目名称
@@ -47,4 +45,10 @@ public class YURL {
     public static final String SELECT_ADDRESS = HOST + "selectAddress";
     //添加地址
     public static final String ADDADDRESS = HOST + "addaddress";
+    //发布订单
+    public static final String ADD_ORDER = HOST + "addOrder";
+    //设置默认收货地址
+    public static final String DEF_ADDRESS = HOST + "defAddress";
+    //删除地址
+    public static final String DEL_ADDRESS = HOST + "delAddress";
 }

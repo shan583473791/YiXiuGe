@@ -19,6 +19,7 @@ import com.zykj.yixiu.R;
 import com.zykj.yixiu.app.MyDianNao;
 import com.zykj.yixiu.app.MyDianNao_LeiXing;
 import com.zykj.yixiu.app.MyTopBar;
+import com.zykj.yixiu.utils.ShouJi;
 import com.zykj.yixiu.utils.Y;
 import com.zykj.yixiu.utils.YURL;
 
@@ -85,6 +86,7 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
     List<MyDianNao> lists; //品牌的数据源
     private Map map;
     private int pid;
+    private ShouJi shouJi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +104,7 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
 
     @OnClick({R.id.jiadianweixiu_activity_ll_pinpai, R.id.jiadianweixiu_activity_ll_leixing, R.id.jiadianweixiu_activity_ll_xinghao, R.id.jiadianweixiu_activity_ll_guzhang, R.id.jiadianweixiu_activity_fl_tu, R.id.botton_ok})
     public void onViewClicked(View view) {
+        shouJi=new ShouJi();
         switch (view.getId()) {
             case R.id.jiadianweixiu_activity_ll_pinpai:
                 //发起请求
@@ -122,9 +125,6 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                                         //选择后的监听器
                                         jiadianTvPinpai.setText(list.get(options1).getName());
                                         if ( mobileIndex != options1){
-
-
-
                                             mobileIndex = options1; // 当前选择的索引
                                             //如果从选型号 把下面清空
                                             jiadianTvLeixing.setHint("请选择您的家电类型");
@@ -133,7 +133,9 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                                             jiadianTvXinghao.setText("");
                                             jiadianTvGuzhang.setHint("请选择您家电的故障");
                                             jiadianTvGuzhang.setText("");
+
                                         }
+                                        shouJi.setPINPAI(jiadianTvPinpai.getText().toString());
                                         mobileIndex = options1; // 当前选择的索引
                                     }
                                 }).build();
@@ -186,6 +188,7 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                                             jiadianTvGuzhang.setText("");
                                         }
                                         mobileIndex = options1; // 当前选择的索引
+                                        shouJi.setLEIXING(jiadianTvLeixing.getText().toString());
                                     }
                                 }).build();
                             //把lists 进行转换
@@ -235,6 +238,7 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                                             jiadianTvGuzhang.setHint("请选择您家电的故障");
                                             jiadianTvGuzhang.setText("");
                                         }
+                                        shouJi.setXINGHAO(jiadianTvXinghao.getText().toString());
                                         mobileIndex = options1; // 当前选择的索引
                                     }
                                 }).build();
@@ -270,6 +274,7 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                                 public void onOptionsSelect(int options1, int options2, int options3, View v) {
                                     //选择后的监听器
                                     jiadianTvGuzhang.setText(lists.get(options1).getName());
+                                    shouJi.setGUZHANG(jiadianTvGuzhang.getText().toString());
                                 }
                             }).build();
                             //把lists 进行转换
@@ -306,6 +311,7 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                                 Glide.with(getApplication()).load(resultList.get(i).getPhotoPath()).into(jiadianIvDi);
                                 jiadianIvZhong.setVisibility(View.INVISIBLE);
                                 jiadianIvXiao.setVisibility(View.INVISIBLE);
+                                shouJi.setTUPIAN(resultList.get(i).getPhotoPath());
                             }
                         }
                     }
@@ -315,7 +321,10 @@ public class JiaDianWeiXiu_Activity_Main extends Activity {
                 });
                 break;
             case R.id.botton_ok:
+                shouJi.setMIAOSHU(editText2.getText().toString().trim());
                 intent = new Intent(this,HuJiaoFuWu_Activity_Main.class);
+                intent.putExtra("type","jiadian");
+                intent.putExtra("JiaDian", shouJi);
                 startActivity(intent);
                 break;
         }

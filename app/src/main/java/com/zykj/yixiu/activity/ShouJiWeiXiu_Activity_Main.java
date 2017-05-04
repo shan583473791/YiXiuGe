@@ -20,11 +20,13 @@ import com.hss01248.dialog.StyledDialog;
 import com.zykj.yixiu.R;
 import com.zykj.yixiu.app.MobileBean;
 import com.zykj.yixiu.app.MyTopBar;
+import com.zykj.yixiu.utils.ShouJi;
 import com.zykj.yixiu.utils.Y;
 import com.zykj.yixiu.utils.YURL;
 
 import org.xutils.http.RequestParams;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -82,7 +84,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
     private ThemeConfig themeConfig;
     private OptionsPickerView opv;
     private Intent intent;
-
+    private ShouJi shouJi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +100,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
     }
     @OnClick({R.id.shouji_activity_ll_pinpai, R.id.shouji_activity_ll_xinghao, R.id.shouji_activity_ll_guzhang, R.id.shouji_fl_tu, R.id.botton_ok})
     public void onViewClicked(View view) {
+        shouJi =new ShouJi();
         switch (view.getId()) {
             case R.id.shouji_activity_ll_pinpai: //选择品牌
                 //发起请求
@@ -125,7 +128,9 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                                         shoujiTvXinghao.setText("");
                                         shoujiTvGuzhang.setHint("请选择您手机的故障");
                                         shoujiTvGuzhang.setText("");
+
                                     }
+                                    shouJi.setPINPAI(shoujiTvPinpai.getText().toString());
                                     mobileIndex = options1; // 当前选择的索引
                                 }
                             }).build();
@@ -154,7 +159,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                     //开始获取型号数据
                     //发起请求
                     Map map=new HashMap();
-                    map.put("pid",lists.get(mobileIndex).getId());
+                    map.put("pid",lists.get(mobileIndex).getId()+"");
                     Y.get(YURL.FIND_PHONE_MODEL,map ,new Y.MyCommonCall<String>() {
                         @Override
                         public void onSuccess(String result) {
@@ -174,7 +179,9 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                                             //如果从选型号 把下面清空
                                             shoujiTvGuzhang.setHint("请选择您手机的故障");
                                             shoujiTvGuzhang.setText("");
+
                                         }
+                                        shouJi.setXINGHAO(shoujiTvXinghao.getText().toString());
                                         mobileIndex = options1; // 当前选择的索引
                                     }
                                 }).build();
@@ -213,6 +220,8 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                                 public void onOptionsSelect(int options1, int options2, int options3, View v) {
                                     //选择后的监听器
                                     shoujiTvGuzhang.setText(lists.get(options1).getName());
+                                    shouJi.setGUZHANG(shoujiTvGuzhang.getText().toString());
+
                                 }
                             }).build();
                             //把lists 进行转换
@@ -240,7 +249,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                         .build();
                 //把所有配置与GalleryFinal进行关联
                 GalleryFinal.init(coreConfig);
-                GalleryFinal.openGallerySingle(REQUEST_CODE_GALLERY, new GalleryFinal.OnHanlderResultCallback() {
+                GalleryFinal.openGallerySingle(REQUEST_CODE_GALLERY,  new GalleryFinal.OnHanlderResultCallback() {
                     @Override
                     public void onHanlderSuccess(int reqeustCode, List<PhotoInfo> resultList) {
                         for (int i = 0; i < resultList.size(); i++) {
@@ -248,6 +257,8 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                                 Glide.with(getApplication()).load(resultList.get(i).getPhotoPath()).into(shoujiIvDi);
                                 shoujiIvZhong.setVisibility(View.INVISIBLE);
                                 shoujiIvXiao.setVisibility(View.INVISIBLE);
+                                resultList.get(i).getPhotoPath();
+                                shouJi.setTUPIAN(resultList.get(i).getPhotoPath());
                             }
                         }
                     }
@@ -257,7 +268,10 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                 });
                 break;
             case R.id.botton_ok:
+                shouJi.setGUZHANG(shoujiEtMiaoshu.getText().toString().trim());
                 intent = new Intent(this,HuJiaoFuWu_Activity_Main.class);
+                intent.putExtra("type","shouji");
+                intent.putExtra("ShouJi", shouJi);
                 startActivity(intent);
                 break;
         }

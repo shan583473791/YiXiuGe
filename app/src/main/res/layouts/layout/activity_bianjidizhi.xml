@@ -69,6 +69,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:gravity="right"
+            android:id="@+id/bianjidizhi_activity_tv_shoujihao"
             android:paddingLeft="20dp"
             android:text="13874678412"
             android:textColor="#494949"

@@ -12,7 +12,9 @@ import com.hss01248.dialog.StyledDialog;
 import com.zykj.yixiu.R;
 import com.zykj.yixiu.app.MyAdapter;
 import com.zykj.yixiu.app.MyTopBar;
+import com.zykj.yixiu.utils.AddressAdapter;
 import com.zykj.yixiu.utils.DiZhiGuanLi_User;
+import com.zykj.yixiu.utils.User;
 import com.zykj.yixiu.utils.Y;
 import com.zykj.yixiu.utils.YURL;
 
@@ -49,27 +51,29 @@ public class DiZhiGuanLi_Activity_Main extends Activity {
                 finish();
             }
         });
+
     }
     @Override
     protected void onResume() {
         super.onResume();
         Map map  =new HashMap();
         map.put("user_id", Y.user.getUser_id()+"");
-
-
         Y.get(YURL.SELECT_ADDRESS, map, new Y.MyCommonCall<String>() {
             @Override
             public void onSuccess(String result) {
-                StyledDialog.dismissLoading();
+              Y.dismiss();
+                userList= JSON.parseArray(Y.getData(result), DiZhiGuanLi_User.class);
+
                 if(Y.getRespCode(result)){
-                    userList= JSON.parseArray(Y.getData(result), DiZhiGuanLi_User.class);
-                   MyAdapter myAdapter=new MyAdapter(DiZhiGuanLi_Activity_Main.this,userList);
-                    dizhiguanliLv.setAdapter(myAdapter);
+                   //MyAdapter myAdapter=new MyAdapter(DiZhiGuanLi_Activity_Main.this,userList);
+                  //  dizhiguanliLv.setAdapter(myAdapter);
+                    Y.DIZHIGUANLI_USER=JSON.parseObject(Y.getData(result), DiZhiGuanLi_User.class);
+                    //启动适配器
+                    dizhiguanliLv.setAdapter(new AddressAdapter(userList,DiZhiGuanLi_Activity_Main.this));
                 }
             }
         });
     }
-
     @OnClick(R.id.dizhiguanli_activity_xinzengdizhi)
     public void onViewClicked() {
         intent = new Intent(this, BianJiDiZhi_Activity_Main.class);

@@ -11,14 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.baidu.mapapi.search.core.SearchResult;
-import com.baidu.mapapi.search.geocode.GeoCodeResult;
-import com.baidu.mapapi.search.geocode.GeoCoder;
-import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
-import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.hss01248.dialog.StyledDialog;
 import com.zykj.yixiu.R;
 import com.zykj.yixiu.app.MyTopBar;
+import com.zykj.yixiu.utils.DiZhiGuanLi_User;
 import com.zykj.yixiu.utils.Y;
 import com.zykj.yixiu.utils.YURL;
 
@@ -47,10 +43,12 @@ public class BianJiDiZhi_Activity_Main extends Activity {
     LinearLayout bianjidizhiActivityLlShoujihao;
     @Bind(R.id.botton_ok)
     Button bottonOk;
+    @Bind(R.id.bianjidizhi_activity_tv_shoujihao)
+    TextView bianjidizhiActivityTvShoujihao;
     private Intent intent;
-    private String dizhi,qu;
+    private String dizhi, qu, trim;
     private String wei;
-    private String jing,bianma;
+    private String jing, bianma;
 
 
     @Override
@@ -72,20 +70,20 @@ public class BianJiDiZhi_Activity_Main extends Activity {
         switch (view.getId()) {
             case R.id.bianjidizhi_activity_ll_shoujihao:
                 intent = new Intent(this, GengHuanShouJiHao_Activity_Main.class);
-                startActivity(intent);
+                startActivityForResult(intent, 301);
                 break;
             case R.id.bianjidizhi_activity_dizhi:
                 intent = new Intent(this, BaiDuDiTu.class);
-                    startActivityForResult(intent,100);
+                startActivityForResult(intent, 100);
 
-                    break;
+                break;
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==100&&resultCode==101){
+        if (requestCode == 100 && resultCode == 101) {
             Bundle extras = data.getExtras();
             dizhi = extras.getString("dizhi");
             qu = extras.getString("qu");
@@ -93,6 +91,11 @@ public class BianJiDiZhi_Activity_Main extends Activity {
             jing = extras.getString("jing");
             bianma = extras.getString("dizhibianma");
             editText.setText(dizhi);
+        }
+        if (requestCode == 301 && resultCode == 302) {
+            Bundle extras = data.getExtras();
+            trim = extras.getString("trim");
+            bianjidizhiActivityTvShoujihao.setText(trim);
         }
     }
 
@@ -109,24 +112,24 @@ public class BianJiDiZhi_Activity_Main extends Activity {
 //        city_name:城市名
 //        city_code:城市编码
 //        isdefault: 是否是默认 0 不默认  1 默认
-        RequestParams params=new RequestParams(YURL.ADDADDRESS);
-        params.addBodyParameter("name",editText.getText().toString().trim());
-        params.addBodyParameter("address",dizhi);
-        params.addBodyParameter("phone",textView2.getText().toString());
-        params.addBodyParameter("user_id",Y.user.getUser_id()+"");
-        params.addBodyParameter("region",qu);
-        params.addBodyParameter("lat",wei);
-        params.addBodyParameter("lon",jing);
-        params.addBodyParameter("city_name",Y.user.getCity());
-        params.addBodyParameter("city_code",bianma);
-        params.addBodyParameter("isdefault",1+"");
-        Y.post(null, new Y.MyCommonCall<String>() {
 
+        RequestParams params = new RequestParams(YURL.ADDADDRESS);
+        params.addBodyParameter("name", editText.getText().toString().trim());
+        params.addBodyParameter("address", Y.user_tianJia.getAddress());
+        params.addBodyParameter("phone", textView2.getText().toString());
+        params.addBodyParameter("user_id", Y.user.getUser_id() + "");
+        params.addBodyParameter("region", Y.user_tianJia.getRegion());
+        params.addBodyParameter("lat", Y.user_tianJia.getLat());
+        params.addBodyParameter("lon", Y.user_tianJia.getLon());
+        params.addBodyParameter("city_name", Y.user.getCity());
+        params.addBodyParameter("city_code", Y.user_tianJia.getCity_code());
+        params.addBodyParameter("isdefault", 1 + "");
+        Y.post(null, new Y.MyCommonCall<String>() {
             @Override
             public void onSuccess(String result) {
-                StyledDialog.dismissLoading();
+                Y.dismiss();
             }
         });
-   finish();
+        finish();
     }
 }

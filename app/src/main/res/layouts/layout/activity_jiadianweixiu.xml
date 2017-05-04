@@ -189,6 +189,7 @@
             android:padding="10dp"
             android:src="@mipmap/huijiao" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
