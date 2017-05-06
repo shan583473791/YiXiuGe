@@ -33,6 +33,15 @@ public class Y {
     public static User user=new User();
     public static String TOKEN;  //用户类
     public  static User_TianJia user_tianJia =new User_TianJia();
+public static ZhuangTai_User ZHUANGTAI_USER=new ZhuangTai_User();
+
+    public static ZhuangTai_User getZhuangtaiUser() {
+        return ZHUANGTAI_USER;
+    }
+
+    public static void setZhuangtaiUser(ZhuangTai_User zhuangtaiUser) {
+        ZHUANGTAI_USER = zhuangtaiUser;
+    }
 
     public static User_TianJia getUser_tianJia() {
         return user_tianJia;

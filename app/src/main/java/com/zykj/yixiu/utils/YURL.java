@@ -51,4 +51,10 @@ public class YURL {
     public static final String DEF_ADDRESS = HOST + "defAddress";
     //删除地址
     public static final String DEL_ADDRESS = HOST + "delAddress";
+    //'根据状态查找订单
+    public static final String FIND_ORDER_BYSTATE = HOST + "findOrderByState";
+    //取消订单
+    public static final String CAN_CELORDER = HOST + "cancelOrder";
+    //删除订单
+    public static final String DEL_ORDER = HOST + "delOrder";
 }

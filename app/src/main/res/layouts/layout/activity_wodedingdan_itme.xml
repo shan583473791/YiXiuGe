@@ -147,6 +147,21 @@
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="150dp"
+                android:src="@mipmap/dingdanlaibaixian" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="158dp"
+                android:text="重新发布"
+                android:id="@+id/dingdan_chongxinfabu"
+                android:textSize="12dp" />
 
             <ImageView
                 android:layout_width="wrap_content"

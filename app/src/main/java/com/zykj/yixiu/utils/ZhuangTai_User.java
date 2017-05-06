@@ -2,11 +2,13 @@ package com.zykj.yixiu.utils;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by zykj on 2017/5/4.
  */
 
-public class ZhuangTai_User {
+public class ZhuangTai_User implements Serializable {
 
     /**
      * model :
@@ -66,7 +68,6 @@ public class ZhuangTai_User {
     private String lon;
     private String city_name;
     private String city_code;
-
     public String getModel() {
         return model;
     }

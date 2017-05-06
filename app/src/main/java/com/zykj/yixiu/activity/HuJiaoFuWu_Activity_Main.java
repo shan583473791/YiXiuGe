@@ -95,6 +95,7 @@ public class HuJiaoFuWu_Activity_Main extends Activity {
                     Y.i(shouJi.getGUZHANG() + "故障");
                     Y.i(shouJi.getMIAOSHU() + "描述");
                     Y.i(shouJi.getTUPIAN() + "图片");
+                    Y.ZHUANGTAI_USER.setOrder_type(1);
                     break;
                 case "B"://家电
                     shouJi = (ShouJi) intent.getSerializableExtra("Bean");
@@ -104,6 +105,7 @@ public class HuJiaoFuWu_Activity_Main extends Activity {
                     Y.i(shouJi.getGUZHANG() + "故障");
                     Y.i(shouJi.getMIAOSHU() + "描述");
                     Y.i(shouJi.getTUPIAN() + "图片");
+                    Y.ZHUANGTAI_USER.setOrder_type(3);
                     break;
                 case "C"://电脑
                     shouJi = (ShouJi) intent.getSerializableExtra("Bean");
@@ -113,6 +115,7 @@ public class HuJiaoFuWu_Activity_Main extends Activity {
                     Y.i(shouJi.getGUZHANG() + "故障");
                     Y.i(shouJi.getMIAOSHU() + "描述");
                     Y.i(shouJi.getTUPIAN() + "图片");
+                    Y.ZHUANGTAI_USER.setOrder_type(2);
                     break;
             }
 
@@ -165,6 +168,7 @@ public class HuJiaoFuWu_Activity_Main extends Activity {
                         params.addBodyParameter("custom_phone", phone); //custom_name:客户电话
                         params.addBodyParameter("address_id", address_id + ""); //address_id:客户关联的地址ID*/
                         params.addBodyParameter("custom_id", Y.user.getUser_id() + "");// custom_id:客户ID
+
                         Y.post(params, new Y.MyCommonCall<String>() {
                             @Override
                             public void onSuccess(String result) {
