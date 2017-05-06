@@ -69,6 +69,7 @@ public class HuJiaoFuWu_Activity_Main extends Activity {
     private String name, address;
     private String phone;
     private Object address_id;
+    private String type1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +85,8 @@ public class HuJiaoFuWu_Activity_Main extends Activity {
         Intent intent = getIntent();
 
         if (intent != null) {
-            String type = intent.getStringExtra("type");
-            switch (type) {
+            type1 = intent.getStringExtra("type");
+            switch (type1) {
                 case "A"://手机
                     shouJi = (ShouJi) intent.getSerializableExtra("Bean");
                     Y.i(shouJi.getPINPAI() + "品牌");
@@ -148,7 +149,7 @@ public class HuJiaoFuWu_Activity_Main extends Activity {
                     public void onStart() {
                     }
                     @Override
-                    public void onSuccess(File file) {
+                    public void onSuccess(final File file) {
                         Y.i("压缩后" + file.length());
                         RequestParams params = new RequestParams(YURL.ADD_ORDER);
                         params.addBodyParameter("custom_name", name); //custom_name:客户姓名
@@ -176,17 +177,23 @@ public class HuJiaoFuWu_Activity_Main extends Activity {
                                     xiangqing.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            Intent intent = new Intent(HuJiaoFuWu_Activity_Main.this, Main_Activity.class);
-                                            intent.putExtra("type", "A");
+                                            Intent intent = new Intent(HuJiaoFuWu_Activity_Main.this, DingDanXiangQing_Activity.class);
+                                            intent.putExtra("type", shouJi);
+                                            intent.putExtra("type1", type1);
+                                            intent.putExtra("shijian", shijan);//时间
+                                            intent.putExtra("fuwudizhi", fuwudizhi);//服务地址
+                                            intent.putExtra("phone", phone);//电话
+                                            intent.putExtra("file", file);//图片
+                                            intent.putExtra("name", name);//图片
                                             startActivity(intent);
                                             dialog.dismiss();
                                             finish();
-
                                         }
                                     });
                                     ok.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
+                                            Intent intent=new Intent(HuJiaoFuWu_Activity_Main.this, Main_Activity.class);
                                             dialog.dismiss();
                                             finish();
                                         }

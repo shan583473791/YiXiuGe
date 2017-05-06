@@ -89,6 +89,8 @@
         <activity android:name=".activity.WoDeDingDan_Activity_YiWanCheng"/>
         <!--我的订单已取消页面-->
         <activity android:name=".activity.WoDeDingDan_Activity_YiQuXiao"/>
+        <!--订单详情页面-->
+        <activity android:name=".activity.DingDanXiangQing_Activity"/>
         <!---友盟权限   开始  -->
         <meta-data
             android:name="UMENG_APPKEY"

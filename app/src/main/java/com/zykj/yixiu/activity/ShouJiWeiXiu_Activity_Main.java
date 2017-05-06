@@ -271,7 +271,7 @@ public class ShouJiWeiXiu_Activity_Main extends Activity {
                 String pinpai = shoujiTvPinpai.getText().toString();
                 String xinghao = shoujiTvXinghao.getText().toString();
                 String leixing = "";
-                String guzhang =shoujiTvXinghao.getText().toString();
+                String guzhang =shoujiTvGuzhang.getText().toString();
                 String miaoshu = shoujiEtMiaoshu.getText().toString().trim();
                 shouJi=new ShouJi();
                 shouJi.setPINPAI(pinpai);

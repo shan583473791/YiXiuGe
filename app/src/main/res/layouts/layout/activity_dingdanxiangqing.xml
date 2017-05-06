@@ -17,13 +17,11 @@
         MyTopBar:leftText="取消订单"
         MyTopBar:leftTextColor="#00cccc"
         MyTopBar:leftTextSize="7sp"
+        android:id="@+id/tou"
         MyTopBar:rightBackground="@mipmap/activity_fh"
-
         MyTopBar:titleText="订单详情"
         MyTopBar:titleTextColor="#00cccc"
         MyTopBar:titleTextSize="8sp"
-
-
         ></com.zykj.yixiu.app.MyTopBar>
 
     <include
@@ -218,7 +216,7 @@
             android:text="种类 : " />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/dingdan_zhonglei"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -259,6 +257,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:id="@+id/dingdan_name"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
@@ -270,6 +269,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
+                    android:id="@+id/dingdan_shouji"
                     android:text="18974387487" />
             </LinearLayout>
 
@@ -301,6 +301,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
+                    android:id="@+id/dingdan_shijian"
                     android:text="2017-04-12   10:30" />
             </LinearLayout>
 
@@ -328,6 +329,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
+                    android:id="@+id/dingdan_dizhi"
                     android:text="黑龙江哈尔滨银行街2号卓亚科技有限公司"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -339,6 +341,7 @@
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_margin="15dp"
+            android:id="@+id/dingdan_tupian"
             android:scaleType="fitXY"
             android:src="@mipmap/dingdanshouji" />
     </LinearLayout>
@@ -376,6 +379,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="苹果手机"
+                android:id="@+id/dingdan_pinpai"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -396,6 +400,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="6 plus"
+                android:id="@+id/dingdan_xinghao"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -404,6 +409,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+
             android:orientation="horizontal">
 
             <TextView
@@ -417,6 +423,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="屏幕"
+                android:id="@+id/dingdan_guzhuang"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -434,6 +441,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
+            android:id="@+id/dingdan_miaoshu"
             android:gravity="center_vertical"
             android:text="内外屏都进水了，按键不好使手机有花屏" />
     </LinearLayout>

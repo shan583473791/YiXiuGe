@@ -14,5 +14,7 @@ public class WoDeDingDan_Activity_WeiWanCheng extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wodedingdan);
+
+
     }
 }

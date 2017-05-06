@@ -56,6 +56,7 @@ public class DiZhiGuanLi_Activity_Main extends Activity {
         dizhiguanliLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 String address = userList.get(position).getAddress();
                 String name = userList.get(position).getName();
                 int address_id = userList.get(position).getAddress_id();
